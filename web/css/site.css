@@ -224,13 +224,13 @@ a.desc:after {
 .copy_right p a {
     color:#DD0F0E;
 
-<<<<<<< HEAD
+
     text-decoration: underline;
 }
 .copy_right p a:hover {
-    color:#222;
+    color: #222;
     text-decoration: none;
-=======
+}
 .input-inline{
     display: inline;
     width: 50%;
@@ -241,7 +241,7 @@ a.desc:after {
 }
 
 .textimg{
-    position: absolute;
+  
     z-index: 1;
     background: lightyellow;
     border-radius: 5px;
@@ -264,5 +264,4 @@ a.desc:after {
     background: lightgrey;
     padding: 5px;
 
->>>>>>> origin/master
 }

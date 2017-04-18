@@ -13,17 +13,8 @@ $this->title = 'Итернет-магазин тезники';
 ?>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 categories">
-          <ul>
-                <h3>Категории</h3>
-                <?php foreach($category as $cat){?>
-                <li><a href="#"><?=$cat->name?></a></li>
-                <?php }?>
-            </ul>
-        </div>
-
-        <div class="col-md-9 slider">
+    <div>
+        <div class="slider">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -55,44 +46,64 @@ $this->title = 'Итернет-магазин тезники';
 
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 categories">
+          <ul>
+                <h3>Категории</h3>
+                <?php foreach($category as $cat){?>
+                <li><a href="#"><?=$cat->name?></a></li>
+                <?php }?>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <div class="content_top" style="border-color: #999999">
+                <div class="heading">
+                    <h3>Новые товары</h3>
+                </div>
+
+                <div class="see pull-right">
+                    <p><a href="#">Все товары</a></p>
+                </div>
+            </div>
+
+            <div class="row products">
+                <?php foreach($product as $prod){
+                    include "_product";
+                }?>
+            </div>
+
+            <div class="content_top" style="border-color: #999999">
+                <div class="heading">
+                    <h3>
+                        Основные товары
+                    </h3>
+                </div>
+
+                <div class="see pull-right">
+                    <p><a href="#">Смотреть все</a></p>
+                </div>
+            </div>
+
+            <div class="row products">
+                <?php foreach($product as $prod){
+                    include "_product";
+                }?>
+            </div>
+
+            <div class="row products">
+                <?php foreach($product as $prod){
+                    include "_product";
+                }?>
+            </div>
+        </div>
+
 
     </div>
 
 
-    <div class="content_top" style="border-color: #999999">
-        <div class="heading">
-            <h3>Новые товары</h3>
-        </div>
 
-        <div class="see pull-right">
-            <p><a href="#">Все товары</a></p>
-        </div>
-    </div>
-
-    <div class="row products">
-      <?php foreach($product as $prod){
-            include "_product";
-        }?>
-    </div>
-
-    <div class="content_top" style="border-color: #999999">
-        <div class="heading">
-            <h3>
-                Основные товары
-            </h3>
-        </div>
-
-        <div class="see pull-right">
-            <p><a href="#">Смотреть все</a></p>
-        </div>
-    </div>
-
-<!--    <div class="row products">-->
-<!--      --><?php //foreach($top as $prod){
-//                  include "_product";
-//
-//            }?>
-<!--    </div>-->
      
 
     </div>
