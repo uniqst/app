@@ -1,0 +1,6 @@
+  <ul>
+                <h3>Категории</h3>
+                <?php foreach($category as $cat){?>
+                <li><a href="#"><?=$cat->name?></a></li>
+                <?php }?>
+            </ul>
