@@ -86,15 +86,6 @@ class SiteController extends Controller
 
         $options = Options::find()->where(['id' => 1])->one();
         $product = Product::find();
-        $pagination = new Pagination([
-            'defaultPageSize' => $opdtions->size_product,
-            'totalCount' => $product->count(),
-            ]);
-        $product = $product
-        ->offset($pagination->offset)
-        ->limit($pagination->limit)
-        ->all();
-
         $order = Order::find()->where(['status' => '1'])->all();
         $top = [];
         foreach ($order as $ord){
@@ -114,7 +105,9 @@ class SiteController extends Controller
         $top = Product::find()->where(['id' => $top1])
         ->orderBy([new \yii\db\Expression('FIELD (id, '.$a.')')])
         ->all();
-            return $this->render('index', compact('product','pagination', 'options', 'top', 'count'));
+        $category = Category::find()->where(['parent_id' => 0])->all();
+        $product = Product::find()->limit('4')->all();
+            return $this->render('index', compact('category', 'product','pagination', 'options', 'top', 'count'));
 
     }
 

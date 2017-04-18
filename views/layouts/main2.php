@@ -58,7 +58,6 @@ $q = Yii::$app->request->get('q');
             <div class="pull-left" style="min-height: 75px">
                 Need help? call us 1-22-3456789
 
-<<<<<<< HEAD
             </div>
 
             <div class="pull-right">
@@ -67,92 +66,8 @@ $q = Yii::$app->request->get('q');
         </div>
     </div>
     
-=======
-    <?php
-    $category =$this->params['key'] ;
-    ?>
-    <div class="container">
-<!-- 
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]); 
-         ?>
- -->
-  <ul class="nav nav-pills hidden-xs">
-      <?php $category = Category::find()->where(['parent_id' => 0])->all();?>
-        <?php foreach($category as $cat){?>
- <li class="dropdown btn-group ">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-danger btn-lg">
-      <?=$cat['name']?>
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-    <?php
-    $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
-    foreach($categ as $c){
-        $count = Product::find()->where(['category_id' => $c->id])->count();
-    ?>
-      <li><a href="#"><?=$c['name'];?>(<?=$count?>)</a></li>
-    <?php }?>
-        </ul>
-        <?php }?>
-       </ul>
-</ul>
-
-        <div class="row content">
-        <div class="col-md-2">
-         <form>
-          <div class="form-group">
-           <label>Категории</label>
-          <select class="selectpicker form-control">
-              <option value="">Все категории</option>
-                  <?php foreach($category as $cat){?>
-                  <optgroup label="<?=$cat['name']?>" style="font-size: 20px;">
-                    <?php
-                  $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
-                  foreach($categ as $c){ 
-                    $count = Product::find()->where(['category_id' => $c->id])->count();?>
-                    <option><a href="#"><?=$c['name']?>(<?=$count?>)</a></option>
-                  <?php }?>
-                  </optgroup>
-             <?php }?>
-            </select>
-          </div>
-          <div class="formgroup">
-            <label>Вес</label>
-            <select name="" class="form-control">
-              <option value="0">Все веса</option>
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </div>
-          <div class="form-group">   
-           <label>Цена</label>
-           <div class="clearfix"></div>
-           <input type="text" class="form-control" id="from" placeholder="От" style="display: inline; width: 48%">
-           <input type="text" class="form-control" placeholder="До" style="display: inline; width: 48%">
-          </div>
-             <div class="form-group">
-             <?php $product = Product::find()->groupBy('brand')->all();?>
-           <label>Бренд</label>
-              <select class="selectpicker form-control">
-              <option value="">Все Бренды</option>
-                  <?php foreach($product as $prod){?>
-                      <option><?=$prod['brand']?></option>
-                  <?php }?>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-success" style="width: 100%">Показать</button>
-          </form>
-        </div>
-        <div class="col-md-10">
-        <?= $content;
->>>>>>> origin/master
+        <?
         
-    <?php
     NavBar::begin([
         'options' => [
 
