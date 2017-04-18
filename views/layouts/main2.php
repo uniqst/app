@@ -46,7 +46,7 @@ $q = Yii::$app->request->get('q');
     <div class="header">
         <div class="container-fluid padding-lrg header-desc">
             <div class="pull-left">
-                Need help? call us 1-22-3456789
+               <span class="glyphicon glyphicon-earphone" style="margin-right: 3px;font-size: 16px"></span>+38 067 555 10 50
 
             </div>
 
@@ -148,22 +148,12 @@ $q = Yii::$app->request->get('q');
                     <li><span>+91-123-456789</span></li>
                     <li><span>+00-123-000000</span></li>
                 </ul>
-                <div class="social-icons">
-                    <h4>Follow Us</h4>
-                    <ul>
-                        <li><a href="#" target="_blank"><img src="images/facebook.png" alt=""/></a></li>
-                        <li><a href="#" target="_blank"><img src="images/twitter.png" alt=""/></a></li>
-                        <li><a href="#" target="_blank"><img src="images/skype.png" alt=""/> </a></li>
-                        <li><a href="#" target="_blank"> <img src="images/dribbble.png" alt=""/></a></li>
-                        <li><a href="#" target="_blank"> <img src="images/linkedin.png" alt=""/></a></li>
-                        <div class="clear"></div>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
     <div class="copy_right">
-        <p>Company Name © All rights Reseverd | Design by <a href="http://w3layouts.com">W3Layouts</a></p>
+        <p>Company Name © Все права защищены | Разработчики сайта:<a href="http://www.uniq-st.com" target="_blank"> Uniq-st.com</a></p>
     </div>
 </div>
 <?php

@@ -40,7 +40,7 @@ $this->title = 'Итернет-магазин тезники';
                     </div>
 
                     <div class="item ">
-                        <img src="images/slide-2-image.png" class=" img img-responsive" alt="Chania">
+                        <img src="images/new-pic4.jpg" class=" img img-responsive" alt="Chania">
                     </div>
 
                     <div class="item ">
@@ -87,12 +87,12 @@ $this->title = 'Итернет-магазин тезники';
         </div>
     </div>
 
-    <div class="row products">
-      <?php foreach($top as $prod){
-                  include "_product";
-
-            }?>
-    </div>
+<!--    <div class="row products">-->
+<!--      --><?php //foreach($top as $prod){
+//                  include "_product";
+//
+//            }?>
+<!--    </div>-->
      
 
     </div>

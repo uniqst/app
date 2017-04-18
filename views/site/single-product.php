@@ -61,6 +61,11 @@ $this->params['breadcrumbs'];
                     <span class="textimg text-success"><?=$prod->price?> грн</span>
                 <?php  }?>
 
+                <div class="price-details">
+                    <a class="add-to-cart" data-id="35" href="#">Add to Cart</a>
+                </div>
+
+
 <!--                <div class="rating1">-->
 <!--          <span class="starRating">-->
 <!--            <input id="rating5" type="radio" name="rating" value="5">-->
@@ -80,24 +85,24 @@ $this->params['breadcrumbs'];
 <!--                    <p>--><?//=$prod->description ?><!--</p>-->
 <!--                </div>-->
                 <div class="color-quality">
-                    <div class="color-quality-left">
-                        <h5>Color : </h5>
-                        <ul>
-                            <li><a href="#"><span></span></a></li>
-                            <li><a href="#" class="brown"><span></span></a></li>
-                            <li><a href="#" class="purple"><span></span></a></li>
-                            <li><a href="#" class="gray"><span></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="color-quality-right">
-                        <h5>Quality :</h5>
-                        <div class="quantity">
-                            <div class="quantity-select">
-                                <div class="entry value-minus1">&nbsp;</div>
-                                <div class="entry value1"><span>1</span></div>
-                                <div class="entry value-plus1 active">&nbsp;</div>
-                            </div>
-                        </div>
+<!--                    <div class="color-quality-left">-->
+<!--                        <h5>Color : </h5>-->
+<!--                        <ul>-->
+<!--                            <li><a href="#"><span></span></a></li>-->
+<!--                            <li><a href="#" class="brown"><span></span></a></li>-->
+<!--                            <li><a href="#" class="purple"><span></span></a></li>-->
+<!--                            <li><a href="#" class="gray"><span></span></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="color-quality-right">-->
+<!--                        <h5>Quality :</h5>-->
+<!--                        <div class="quantity">-->
+<!--                            <div class="quantity-select">-->
+<!--                                <div class="entry value-minus1">&nbsp;</div>-->
+<!--                                <div class="entry value1"><span>1</span></div>-->
+<!--                                <div class="entry value-plus1 active">&nbsp;</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <!--quantity-->
 <!--                        <script>-->
 <!--                            $('.value-plus1').on('click', function(){-->
@@ -112,7 +117,7 @@ $this->params['breadcrumbs'];
 <!--                        </script>-->
                         <!--quantity-->
 
-                    </div>
+<!--                    </div>-->
                     <div class="clearfix"> </div>
                 </div>
 <!--                <div class="occasional">-->

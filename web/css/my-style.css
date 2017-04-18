@@ -114,11 +114,11 @@ nav.navbar-default > div{
 
 .categories li a{
     display: block;
-    font-size: 12px;
+    font-size: 13px;
 
-    padding: 8px 15px;
-    color: #9C9C9C;
-    margin: 0 20px;
+    padding: 8px 13px;
+    color: #717171;
+    margin: 0 12px;
     background: url(../images/drop_arrow.png) no-repeat 0;
     border-bottom: 1px solid #EEE;
     text-transform: uppercase;
@@ -139,6 +139,7 @@ nav.navbar-default > div{
 
 .slider img{
     max-height: 450px;
+    width: 100%;
 }
 
 #myCarousel{
@@ -257,6 +258,13 @@ nav.navbar-default > div{
     color: #FFF;
 }
 
+.price-details a {
+    margin-top:230px;
+    font-size: 18px;
+    padding: 10px 15px;
+    background: #CD1F25;
+    color: #FFF;
+}
 
 
 /* PRODUCT END */
