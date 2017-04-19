@@ -18,24 +18,25 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         'css/responsive.css',
         'css/flexslider.css',
         'css/site.css',
         'css/my-style.css',
-
+        'css/dropdowns-enhancement.css',
     ];
     public $js = [
+
         'js/jquery.sticky.js',
         'js/jquery.flexslider-min.js',
         'js/jquery.cookie.js',
         'js/jquery.accordion.js',
         'admin-lte/js/AdminLTE/app.js',
+        'js/dropdowns-enhancement.js',
         'js/main.js',
-
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
-
     ];
 }

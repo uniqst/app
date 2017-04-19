@@ -153,7 +153,7 @@ $q = Yii::$app->request->get('q');
         </div>
     </div>
     <div class="copy_right">
-        <p>Company Name © Все права защищены | Разработчики сайта:<a href="http://www.uniq-st.com" target="_blank"> Uniq-st.com</a></p>
+        <p>Company Name © Все права защищены | Разработчики сайта:<a href="http://www.uniq-st.com" target="_blank"> uniq-st.com</a></p>
     </div>
 </div>
 <?php

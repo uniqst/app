@@ -2,12 +2,14 @@
 
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
+
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 use app\models\Category;
 
 use yii\helpers\Html;
+
 $this->title = 'Итернет-магазин тезники';
 
 ?>
@@ -44,17 +46,32 @@ $this->title = 'Итернет-магазин тезники';
                 </div>
 
 
+
+
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-3 categories">
-          <ul>
+            <ul>
                 <h3>Категории</h3>
-                <?php foreach($category as $cat){?>
-                <li><a href="#"><?=$cat->name?></a></li>
-                <?php }?>
+                <?php foreach ($category as $cat) { ?>
+                    <li><a href="#"><?= $cat->name ?></a></li>
+                <?php } ?>
             </ul>
+
+            <hr>
+
+            <div class="btn-group">
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Checked option <span class="caret"></span></button>
+                <ul class="dropdown-menu bullet pull-middle-right">
+                    <li><input type="radio" id="ID" name="NAME" value="VALUE"><label for="ID">Label</label></li>
+                    <!-- Other items -->
+                </ul>
+            </div>
+
+
+
         </div>
 
         <div class="col-md-9">
@@ -69,9 +86,9 @@ $this->title = 'Итернет-магазин тезники';
             </div>
 
             <div class="row products">
-                <?php foreach($product as $prod){
+                <?php foreach ($product as $prod) {
                     include "_product";
-                }?>
+                } ?>
             </div>
 
             <div class="content_top" style="border-color: #999999">
@@ -87,15 +104,15 @@ $this->title = 'Итернет-магазин тезники';
             </div>
 
             <div class="row products">
-                <?php foreach($product as $prod){
+                <?php foreach ($product as $prod) {
                     include "_product";
-                }?>
+                } ?>
             </div>
 
             <div class="row products">
-                <?php foreach($product as $prod){
+                <?php foreach ($product as $prod) {
                     include "_product";
-                }?>
+                } ?>
             </div>
         </div>
 
@@ -103,8 +120,5 @@ $this->title = 'Итернет-магазин тезники';
     </div>
 
 
-
-     
-
-    </div>
+</div>
 

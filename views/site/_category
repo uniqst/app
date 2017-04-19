@@ -1,6 +1,16 @@
-<ul>
-                <h3>Категории</h3>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; width: 180px;">
+    <h3>Категории</h3>
                 <?php foreach($category as $cat){?>
-                <li><a href="#"><?=$cat->name?></a></li>
+                <li><a href="#"></a></li>
+                 <li class="dropdown-submenu pull-left"> <a tabindex="-1" href="#"><?=$cat->name?></a>
+                        <ul class="dropdown-menu" class='float:right'>
+                            <li><a tabindex="-1" href="#">Second level link</a></li>
+                            <li><a tabindex="-1" href="#">Second level link</a></li>
+                            <li><a tabindex="-1" href="#">Second level link</a></li>
+                            <li><a tabindex="-1" href="#">Second level link</a></li>
+                            <li><a tabindex="-1" href="#">Second level link</a></li>
+                        </ul>
+                    </li>
+
                 <?php }?>
-            </ul>
+</ul>
