@@ -86,6 +86,10 @@ public function actionIndex()
     $options = Options::find()->where(['id' => 1])->one();
     $category = Category::find()->where(['parent_id' => 0])->all();
 
+
+//    d($category);
+
+
     // $pagination = new Pagination([
     //     'defaultPageSize' => $options->size_product,
     //     'totalCount' => $product->count(),

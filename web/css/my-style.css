@@ -91,6 +91,44 @@ nav.navbar-default > div{
     padding-right: 0;
 }
 
+.categories .dropdown-menu.bullet.pull-middle.pull-right{
+    top:0;
+}
+
+.categories .btn-group{
+    width: 100%;
+}
+
+.categories .btn-group .btn:nth-child(1){
+    width: calc(100% - 30px);
+    border-right:1px solid #e0e0e0;
+}
+
+.categories .btn-group .btn:nth-child(2){
+    min-height:36px;
+
+}
+
+.categories .btn-group.open .dropdown-toggle{
+    box-shadow: none;
+}
+
+.categories .btn-group.open:focus .dropdown-toggle{
+    box-shadow: none;
+}
+
+.categories .btn-group .btn {
+    display: block;
+    font-size: 13px;
+    text-align: left;
+    padding: 8px 13px;
+    color: #717171;
+    margin: 0 0;
+    /*background: url(../images/drop_arrow.png) no-repeat 0;*/
+    border-bottom: 1px solid #EEE;
+    text-transform: uppercase;
+}
+
 .categories h3 {
     font-size: 19px;
     color: #FFF;
@@ -294,4 +332,6 @@ nav.navbar-default > div{
     border-bottom: 1px solid #B81D22;
 
 }
+
+
 

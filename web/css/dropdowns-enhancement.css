@@ -164,7 +164,7 @@
     margin-right: 8px;
 }
 .dropdown-menu.bullet.pull-middle:before {
-    top: 50%;
+    top: 18px;
     left: 100%;
     right: auto;
     margin-top: -7px;
@@ -175,7 +175,7 @@
     border-left-color: rgba(0, 0, 0, 0.15);
 }
 .dropdown-menu.bullet.pull-middle:after {
-    top: 50%;
+    top: 18px;
     left: 100%;
     right: auto;
     margin-top: -6px;
@@ -183,6 +183,7 @@
     border-bottom-color: transparent;
     border-top-width: 6px;
     border-left-color: #ffffff;
+
 }
 .dropdown-menu.bullet.pull-middle.pull-right {
     margin-right: 0;

@@ -153,7 +153,7 @@
       $menu.css('margin-right', $menu.outerWidth() / -2);
     }
 
-    if ($menu.hasClass('pull-middle')) {
+    if ($menu.hasClass('pull-middle') && !$menu.hasClass('pull-middle-true') ) {
       $menu.css('margin-top', ($menu.outerHeight() / -2) - ($control.outerHeight() / 2));
     }
   }
