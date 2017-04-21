@@ -29,7 +29,7 @@ class OrderController extends AdminController
         $dataProvider = new ActiveDataProvider([
             'query' => Order::find(),
             'pagination'=>[
-            'pageSize' => 15,
+            'pageSize' => 10,
             ],
             'sort' => [
             'defaultOrder' => [
@@ -79,7 +79,7 @@ class OrderController extends AdminController
      * @param string $id
      * @return mixed
      */
-    public function actionUpdate()
+    public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 

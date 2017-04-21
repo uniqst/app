@@ -20,11 +20,6 @@ $this->title = 'Итернет-магазин тезники';
 <div class="container-fluid">
 
 
-<!--    <div class="categories">-->
-<!--        --><?//=  CategoryWidget::widget()?>
-<!--    </div>-->
-
-
 
     <div>
         <div class="slider">
@@ -70,7 +65,7 @@ $this->title = 'Итернет-магазин тезники';
 <!--                    <li><a href="#">--><?//= $cat->name ?><!--</a></li>-->
 
                     <div class="btn-group dropdown">
-                        <a  href="<?= Url::to(['site/catalog','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
+                        <a  href="<?= Url::to(['site/category','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
 
                         <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
 
@@ -80,7 +75,7 @@ $this->title = 'Итернет-магазин тезники';
                             foreach($categ as $c){
                                 //$count = Product::find()->where(['category_id' => $c->id])->count();
                                 ?>
-                                <li><a href="<?= Url::to(['site/catalog','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
+                                <li><a href="<?= Url::to(['site/category','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
                             <?php }?>
                         </ul>
                     </div>

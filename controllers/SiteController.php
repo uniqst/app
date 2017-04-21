@@ -17,6 +17,8 @@ use app\models\Order;
 use app\models\Cart;
 use app\models\Qwe;
 use app\models\Ewq;
+use app\modules\admin\models\InCategory;
+use app\modules\admin\models\CatOption;
 
 use yii\data\Pagination;
 
@@ -224,16 +226,18 @@ public function actionIndex()
             ]);
     }
 
-     public function actionSingleProduct()
+     public function actionSingleProduct($id)
     {
      $category = Category::find()->where(['parent_id' => 0])->all();
-     $id = Yii::$app->request->get('id');
      $prod = Product::find()->where(['id' => $id])->one();
+     $incat = Incategory::find()->where(['category_id' => $prod->category_id
+        ])->with('catOption')->all();
      return $this->render('single-product', [
         'id' => $id,
         'prod' => $prod,
         'title' => $prod->name,
         'category' => $category,
+        'incat' => $incat,
         ]);
 
     }
@@ -260,6 +264,23 @@ public function actionIndex()
         $alias = Yii::$app->request->get('alias');
         $pages = Pages::find()->where(['alias' => $alias])->one();
         return $this->render('pages', compact('pages'));
+     }
+
+     public function actionCategory($id)
+     {
+    $cat = InCategory::find()->where(['category_id' => Yii::$app->request->get('id')])->all();
+      $product = Product::find()->where(['category_id' => $id])->with('category')->all();
+      if (empty($product)){
+        $categ = Category::find()->where(['parent_id' => $id])->all();
+        $ca = [];
+        foreach($categ as $cat){
+            $ca [] = $cat->id;
+        }
+        $cat = InCategory::find()->where(['category_id' => $ca])->all();
+        $product = Product::find()->where(['category_id' => $ca])->with('category')->all();
+      }
+    $title = Category::find()->where(["id" => $id])->one();
+      return $this->render('category', compact('product', 'cat', 'title'));
      }
     
 

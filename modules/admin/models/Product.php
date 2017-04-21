@@ -1,7 +1,7 @@
 <?php
 
 namespace app\modules\admin\models;
-use app\models\Category;
+use app\modules\admin\models\Category;
 use yii\base\Model;
 use Yii;
 use yii\web\UploadedFile;
@@ -34,26 +34,27 @@ class Product extends \yii\db\ActiveRecord
             ]
         ];
     }
-
-    public function getInCaregory()
-    {  
-        return $this->hasOne(InCategory::className(), ['product_id' => 'id']);
-    }
-
-    public function getCategory(){
+     public function getCategory(){
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
+
+    public function getInCategory()
+    {  
+        return $this->hasMany(InCategory::className(), ['category_id' => 'id']);
+    }
+
+   
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['category_id', 'name', 'description', 'price', 'price_promo', 'brand'], 'required'],
+            [['category_id', 'name', 'description', 'price', 'brand'], 'required'],
             [['category_id', 'price', 'price_promo'], 'integer'],
-            [['file'], 'file'], 
-            [['name', 'description', 'photo', 'brand'], 'string', 'max' => 255],
+            [['file'], 'file', 'skipOnEmpty' => true], 
+            [['name', 'description', 'photo', 'brand'], 'string', 'max' => 10000],
       
         ];
     }

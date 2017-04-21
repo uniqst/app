@@ -24,6 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+        <?php $arr = [['attribute' => 'brand'], ['attribute' => 'width']];
+
+        print_r($arr);?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
