@@ -21,6 +21,7 @@ $this->title = 'Итернет-магазин тезники';
 
 
 
+
     <div>
         <div class="slider">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -122,11 +123,7 @@ $this->title = 'Итернет-магазин тезники';
                 } ?>
             </div>
 
-            <div class="row products">
-                <?php foreach ($product as $prod) {
-                    include "_product";
-                } ?>
-            </div>
+       
         </div>
 
 
