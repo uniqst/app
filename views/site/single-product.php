@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\models\Product;
+use app\models\Category;
 
 //d($prod);
 
@@ -25,6 +26,32 @@ $this->params['breadcrumbs'];
 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-md-3 categories hidden-sm hidden-xs">
+            <ul>
+                <h3>Категории</h3>
+                <?php foreach ($category as $cat) { ?>
+                    <!--                    <li><a href="#">--><?//= $cat->name ?><!--</a></li>-->
+
+                    <div class="btn-group dropdown">
+                        <a  href="<?= Url::to(['site/catalog','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
+
+                        <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
+
+                        <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
+                            <?php
+                            $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
+                            foreach($categ as $c){
+                                //$count = Product::find()->where(['category_id' => $c->id])->count();
+                                ?>
+                                <li><a href="<?= Url::to(['site/catalog','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+
+                <?php } ?>
+            </ul>
+
+        </div>
         <div class="col-md-9 description" >
 
            <div class="col-md-6">
@@ -61,8 +88,8 @@ $this->params['breadcrumbs'];
                     <span class="textimg text-success"><?=$prod->price?> грн</span>
                 <?php  }?>
 
-                <div class=""  style="margin-top: 30px">
-                    <a  data-id="35" href="#">Add to Cart</a>
+                <div  style="margin-top: 30px">
+                    <a class="add-to-cart" data-id="<?= $prod->id ?>" href="#">Add to Cart</a>
                 </div>
 
 
@@ -261,9 +288,7 @@ $this->params['breadcrumbs'];
                 </div>
             </div>
         </div>
-        <div class="col-md-3 categories hidden-sm hidden-xs">
-         <?php include "_category";?>
-        </div>
+
 
 
 

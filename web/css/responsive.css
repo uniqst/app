@@ -1,4 +1,15 @@
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1400px) {
+    nav.navbar-default {
+        max-width: 95%;
+    }
+
+    .container-fluid {
+        max-width: 95%;
+    }
+
+}
+
+    @media only screen and (max-width : 1200px) {
     nav.navbar-default{
         max-width: 90%;
     }
@@ -28,13 +39,21 @@
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 991px) {
+@media only screen and (max-width : 992px) {
     nav.navbar-default{
         max-width: 95%;
     }
 
     .container-fluid{
         max-width: 95%;
+    }
+
+    .col-md-3.categories{
+        max-width:100%;
+    }
+
+    .col-md-9.prod-window{
+        width: 100%;
     }
 }
 

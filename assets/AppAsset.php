@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/my-style.css',
         'css/responsive.css',
+        'css/bootstrap-dropdownhover.min.css',
 
     ];
     public $js = [
@@ -34,6 +35,7 @@ class AppAsset extends AssetBundle
         'js/jquery.accordion.js',
         'admin-lte/js/AdminLTE/app.js',
         'js/dropdowns-enhancement.js',
+        'js/bootstrap-dropdownhover.min.js',
         'js/main.js',
     ];
     public $depends = [

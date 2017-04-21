@@ -152,16 +152,16 @@ $q = Yii::$app->request->get('q');
 <!--            </div>-->
 <!--        </div>-->
 
-        <div class="col-md-5">
+        <div class="col-sm-5">
 <h4>Company name</h4>
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at commodi ea eum fugit inventore ipsum numquam repellendus soluta vel. </p>
         </div>
-        <div class="col-md-3 col-md-offset-1">
+        <div class="col-sm-3 col-md-offset-1">
 <h4>Контакты</h4>
             <span>email@email.com.ua</span><br>
             <span>+380934445556</span><br>
         </div>
-        <div class="col-md-3">
+        <div class="col-sm-3">
            <h4>Социальные сети</h4>
             <i class="fa fa-twitter"></i>
             <i class="fa fa-facebook"></i>

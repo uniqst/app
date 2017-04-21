@@ -203,7 +203,7 @@ public function actionIndex()
     {
 
         $id = Yii::$app->request->get('id');
-
+        $product = Product::find()->where(['id' => $id])->all();
         $pagination = new Pagination([
             'defaultPageSize' => 9,
             'totalCount' => $product->count(),

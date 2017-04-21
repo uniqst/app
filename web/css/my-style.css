@@ -91,7 +91,7 @@ nav.navbar-default > div{
     padding-right: 0;
 }
 
-.categories .dropdown-menu.bullet.pull-middle.pull-right{
+.categories .dropdown-menu.pull-middle.pull-right{
     top:0;
 }
 
@@ -101,7 +101,7 @@ nav.navbar-default > div{
 
 .categories .btn-group .btn:nth-child(1){
     width: calc(100% - 30px);
-    border-right:1px solid #e0e0e0;
+    /*border-right:1px solid #e0e0e0;*/
 }
 
 .categories .btn-group .btn:nth-child(2){
@@ -141,9 +141,20 @@ nav.navbar-default > div{
 
 }
 
+.col-md-3.categories{
+    max-width:230px;
+}
+
+.col-md-9.prod-window{
+    width: calc(99.9% - 230px)
+}
+
 .categories ul{
     padding-left: 0;
     margin-bottom: 0;
+
+
+
 }
 
 .categories li{
@@ -153,7 +164,6 @@ nav.navbar-default > div{
 .categories li a{
     display: block;
     font-size: 13px;
-
     padding: 8px 13px;
     color: #717171;
     margin: 0 12px;
