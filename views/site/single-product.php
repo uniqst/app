@@ -88,7 +88,7 @@ $this->params['breadcrumbs'];
                 <span class="textimg text-success"><?=$prod->price?> грн</span>
                 <?php  }?>
 
-                <div  style="margin-top: 30px">
+                <div  style="margin-top: 30px;margin-bottom: 60px">
                     <a class="add-to-cart btn btn-danger" data-id="<?= $prod->id ?>" href="#">Добавить в корзину</a>
                 </div>
 

@@ -116,3 +116,13 @@ $(document).ready(function() {
 	});
 });
 */
+
+$(document).ready(function() {
+	// $('#myCarousel').carousel({
+	// 	interval: 3000,
+	// })
+
+	$('.main-carousel').carousel({
+		interval: 7000
+	});
+});
