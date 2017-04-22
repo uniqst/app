@@ -17,6 +17,9 @@ $this->title = 'Поиск|'.$q;
                     <?php foreach($product as $prod){
                         include "_product";
                     }?>
+                    <?php foreach($product as $prod){
+                        include "_product";
+                    }?>
                 </div>
                 <div class="clearfix"></div>
                 <?=LinkPager::widget(['pagination' => $pagination])?>

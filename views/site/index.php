@@ -21,7 +21,6 @@ $this->title = 'Итернет-магазин тезники';
 
 
 
-
     <div>
         <!--        <div class="slider">-->
         <!--            <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
@@ -131,6 +130,7 @@ $this->title = 'Итернет-магазин тезники';
         </div>
 
     </div>
+    
     <div class="row">
         <div class="col-md-3 categories">
             <ul>
@@ -196,7 +196,15 @@ $this->title = 'Итернет-магазин тезники';
                 } ?>
             </div>
 
+<<<<<<< HEAD
 
+=======
+            <div class="row products">
+                <?php foreach ($product as $prod) {
+                    include "_product";
+                } ?>
+            </div>
+>>>>>>> parent of ec4c06c... 1312
         </div>
 
 
