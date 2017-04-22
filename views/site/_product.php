@@ -1,23 +1,24 @@
-<?php
+ <?php
 use yii\helpers\Url;
-?>
 
- <div class="col-md-<?=$options->size_md?> col-sm-<?=$options->size_sm?> col-xs-<?=$options->size_xs?>" style=" padding: 5px;">
- 		               <a href="<?= Url::to(['site/single-product', 'name' => $prod->name, 'id' => $prod->id]);?>">
-				  <?php if ($prod->price_promo != 0){?>
- 			  <span class="textimg text-danger"><span style="text-decoration: line-through; "><?=$prod->price?> грн</span><span class="text-success"> <?=$prod->price_promo?> грн</span></span>
- 			<?php  } else {?>
- 			  <span class="textimg text-success"><?=$prod->price?> грн</span>
- 			<?php  }
+ ?>
 
-      ?>
+  <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="product">
+                <a href="<?= \yii\helpers\Url::to(['site/single-product', 'id' => $prod->id, 'name' => $prod->name]) ?>">
+                   <div class="img-container"><img src="<?=Url::to(['web/'.$prod->photo])?>" alt=""></div>
+                </a>
+                <h2><?=$prod->name?> </h2>
+                <div class="price-details">
+                    <div class="price-number">
+                        <p><span class="rupees"><?=$prod->price?> грн</span></p>
+                    </div>
+                    <div class="add-cart">
+                        <span class="pull-right "><a class="add-to-cart" data-id="<?=$prod->id?>" href="#"><i class="fa fa-cart-plus" style='font-size:23px' aria-hidden="true"></i></a></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
 
-				<p class="prod-name"><?=$prod->name?></p>
-               <img class="qqq img-thumbnail" src="<?= '/web/'.$prod->photo;?>" style="width: 100%;"/>
-               </a>
-              
-                   <a href="#" style="width: 100%; position: inline-block;" data-id="<?= $prod->id?>" class="btn btn-danger add-to-cart cart">
-            <i class="glyphicon glyphicon-shopping-cart"></i>
-            В корзину
-          </a>
-          </div>
+
+            </div>
+        </div>

@@ -15,10 +15,10 @@ $this->title = 'Поиск|'.$q;
             <div class="body-content">
                 <div class="row products">
                     <?php foreach($product as $prod){
-                        include "_product";
+                        include "_product.php";
                     }?>
                     <?php foreach($product as $prod){
-                        include "_product";
+                        include "_product.php";
                     }?>
                 </div>
                 <div class="clearfix"></div>

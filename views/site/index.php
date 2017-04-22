@@ -130,7 +130,7 @@ $this->title = 'Итернет-магазин тезники';
         </div>
 
     </div>
-    
+
     <div class="row">
         <div class="col-md-3 categories">
             <ul>
@@ -174,7 +174,7 @@ $this->title = 'Итернет-магазин тезники';
 
             <div class="row products">
                 <?php foreach ($product as $prod) {
-                    include "_product";
+                    include "_product.php";
                 } ?>
             </div>
 
@@ -192,19 +192,19 @@ $this->title = 'Итернет-магазин тезники';
 
             <div class="row products">
                 <?php foreach ($product as $prod) {
-                    include "_product";
+                    include "_product.php";
                 } ?>
             </div>
-
-<<<<<<< HEAD
-
-=======
-            <div class="row products">
-                <?php foreach ($product as $prod) {
-                    include "_product";
-                } ?>
-            </div>
->>>>>>> parent of ec4c06c... 1312
+<!---->
+<!--<<<<<<< HEAD-->
+<!---->
+<!--=======-->
+<!--            <div class="row products">-->
+<!--                --><?php //foreach ($product as $prod) {
+//                    include "_product";
+//                } ?>
+<!--            </div>-->
+<!-- >>>>>> parent of ec4c06c... 1312-->
         </div>
 
 

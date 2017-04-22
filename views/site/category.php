@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-9 prod-window">
          <div class="row products">
                 <?php foreach ($product as $prod) {
-                    include "_product";
+                    include "_product.php";
                 } ?>
             </div>
             </div>

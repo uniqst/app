@@ -22,11 +22,12 @@ class AppAsset extends AssetBundle
         'css/flexslider.css',
         'css/animate.css',
         'css/owl.carousel.css',
-        'css/bootstrap-dropdownhover.min.css',
+        'css/dropdowns-enhancement.css',
         'css/owl.carousel.css',
         'css/site.css',
         'css/my-style.css',
         'css/responsive.css',
+        'css/bootstrap-dropdownhover.min.css',
 
 
     ];

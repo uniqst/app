@@ -129,7 +129,7 @@ nav.navbar-default > div{
 }
 
 .categories .btn-group .btn:nth-child(2){
-    min-height:36px;
+    min-height:39px;
 
 }
 
@@ -299,12 +299,18 @@ nav.navbar-default > div{
     text-align: center;
 }
 
-.product a img{
-    max-width: 100%;
+
+.product .a>img{
+    width: 100%;
+    height: 200px;
+    background: red;
 }
 
 .product h2 {
     text-align: center;
+    min-height:41px;
+    max-height:41px;
+    overflow-y: hidden;
     color: #6A82A4;
     font-size: 17px;
     font-weight: normal;
@@ -313,7 +319,6 @@ nav.navbar-default > div{
 }
 
 .price-details{
-
     border-top: 1px solid #CD1F25;
 }
 
@@ -368,7 +373,17 @@ nav.navbar-default > div{
 }
 
 .product a img{
-    max-height: 170px;
+    /*max-height: 170px;*/
+}
+
+.img-container {
+    line-height: 200px;
+    height: 200px;
+    /*background: red;*/
+}
+
+.img-container img{
+   vertical-align: middle;
 }
 
 
@@ -661,5 +676,10 @@ p.third.animated{
     animation-duration: 0.5s;
     animation-delay: 4.7s;
     animation-iteration-count: 1;
+}
+
+.footer .social .fa{
+    font-size: 24px;
+    margin: 8px;
 }
 

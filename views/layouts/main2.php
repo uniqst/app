@@ -50,13 +50,15 @@ $q = Yii::$app->request->get('q');
 
             </div>
 
+            <div style="text-align: center">  <span class="glyphicon glyphicon-earphone" style="margin-right: 3px;font-size: 16px"></span>+38 067 555 10 50</div>
+
             <div class="pull-right">
                 Register Login Delivery Checkout My Account
             </div>
         </div>
         <div class="container-fluid padding-lrg header-top">
             <div class="pull-left" style="min-height: 75px">
-                Need help? call us 1-22-3456789
+              <img style="height: 50px;" class="img img-responsive" src="https://devitems.com/html/subas-preview-v1.3/img/logo.png">
 
             </div>
 
@@ -161,7 +163,7 @@ $q = Yii::$app->request->get('q');
             <span>email@email.com.ua</span><br>
             <span>+380934445556</span><br>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 social">
            <h4>Социальные сети</h4>
             <i class="fa fa-twitter"></i>
             <i class="fa fa-facebook"></i>
