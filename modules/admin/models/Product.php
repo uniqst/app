@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 use app\modules\admin\models\Category;
+use app\modules\admin\models\CatOption;
 use yii\base\Model;
 use Yii;
 use yii\web\UploadedFile;
@@ -42,6 +43,11 @@ class Product extends \yii\db\ActiveRecord
     public function getInCategory()
     {  
         return $this->hasMany(InCategory::className(), ['category_id' => 'id']);
+    }
+
+      public function getCatOption()
+    {  
+        return $this->hasMany(CatOption::className(), ['product_id' => 'id']);
     }
 
    

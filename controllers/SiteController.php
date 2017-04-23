@@ -8,8 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\Category;
-use app\models\Product;
+use app\modules\admin\models\Category;
+use app\modules\admin\models\Product;
 use app\models\Pages;
 use app\models\Options;
 use app\models\OrderItem;
@@ -21,6 +21,7 @@ use app\modules\admin\models\InCategory;
 use app\modules\admin\models\CatOption;
 
 use yii\data\Pagination;
+use yii\db\ActiveQuery;
 
 
 class SiteController extends Controller
@@ -266,8 +267,11 @@ public function actionIndex()
         return $this->render('pages', compact('pages'));
      }
 
-     public function actionCategory($id)
+     public function actionCategory()
      {
+
+
+          $id = Yii::$app->request->get('id');
     $cat = InCategory::find()->where(['category_id' => Yii::$app->request->get('id')])->all();
       $product = Product::find()->where(['category_id' => $id])->with('category')->all();
       if (empty($product)){
@@ -277,10 +281,27 @@ public function actionIndex()
             $ca [] = $cat->id;
         }
         $cat = InCategory::find()->where(['category_id' => $ca])->all();
+        
+        if(Yii::$app->request->get('value')){
+          $value = [];
+        foreach(Yii::$app->request->get('value') as $key => $val){
+          $value[] = $key;
+        }
+
+         $opt = CatOption::find()->where(['id' => $value])->all();
+         $op = [];
+         foreach($opt as $o){
+          $op[] = $o->product_id;
+         }
+
+         $product = Product::find()->where(['category_id' => $ca, 'id' => $op])->with('category')->all();
+
+        }else{
         $product = Product::find()->where(['category_id' => $ca])->with('category')->all();
-      }
+        }
     $title = Category::find()->where(["id" => $id])->one();
-      return $this->render('category', compact('product', 'cat', 'title'));
+     }
+      return $this->render('category', compact('product', 'cat', 'title', 'value'));
      }
     
 
