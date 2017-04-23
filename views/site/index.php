@@ -181,7 +181,7 @@ $this->title = 'Итернет-магазин тезники';
             <div class="content_top" style="border-color: #999999">
                 <div class="heading">
                     <h3>
-                        Основные товары
+                        Топ продаж
                     </h3>
                 </div>
 
@@ -191,7 +191,7 @@ $this->title = 'Итернет-магазин тезники';
             </div>
 
             <div class="row products">
-                <?php foreach ($product as $prod) {
+                <?php foreach ($top as $prod) {
                     include "_product.php";
                 } ?>
             </div>

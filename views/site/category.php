@@ -10,8 +10,6 @@ use app\modules\admin\models\CatOption;
 
 $this->title = $title->name;
 $this->params['breadcrumbs'][] = $this->title;
-
-
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -19,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             <h2><?= $this->title ?></h2>
-            <form method="get" action="">
+            <form method="get" action="" id="filter">
                 <input type="hidden" name="id" value="<?= Yii::$app->request->get('id') ?>" class="btn btn-success">
 
                 <ul class="list-group">
@@ -31,18 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
                             ?>
                             <li class="list-group-item"><input type="checkbox"
                                     <?php
-                                    if(!empty($value)) {
+                                    if(!empty($value)){
                                         if (in_array($c->id, $value, true)) {
                                             echo "checked";
-                                        }
-                                    }?>
+                                            }
+                                            }?>
 
-                                                               name="value[<?= $c->id ?>]" id="check1"><label
-                                    for="check1"><?= $c->value ?></label></li>
+                                                               name="value[<?= $c->id ?>]" id="check<?=$c->id?>" onclick="this.form.submit();"><label
+                                    for="check<?=$c->id?>"><?= $c->value ?></label></li>
                         <?php }
                     }
                     ?>
-                    <input type="submit" class="btn btn-success" style="width: 100%" value="Поиск">
+                 <!--    <input type="submit" class="btn btn-success" style="width: 100%" value="Поиск"> -->
                 </ul>
             </form>
         </div>

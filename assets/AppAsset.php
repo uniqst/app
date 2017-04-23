@@ -33,11 +33,9 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
 
-        'js/jquery.sticky.js',
         'js/jquery.flexslider-min.js',
         'js/jquery.cookie.js',
         'js/jquery.accordion.js',
-        'admin-lte/js/AdminLTE/app.js',
         'js/dropdowns-enhancement.js',
         'js/bootstrap-dropdownhover.min.js',
         'js/owl.carousel.min.js',
