@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             <h2><?= $this->title ?></h2>
-            <form method="get" action="" id="filter">
+            <form method="get" action="">
                 <input type="hidden" name="id" value="<?= Yii::$app->request->get('id') ?>" class="btn btn-success">
 
                 <ul class="list-group">
@@ -26,22 +26,26 @@ $this->params['breadcrumbs'][] = $this->title;
                         echo "<li class='list-group-item' style='font-weight: 900; margin-top: 20px;'>" . $q->name . "</li>";
                         $cat1 = CatOption::find()->where(['incat_id' => $q->id])->groupBy('value')->all();
                         foreach ($cat1 as $c) {
-                            ?>
-                            <li class="list-group-item"><input type="checkbox"
-                                    <?php
-                                    if(!empty($value)){
-                                        if (in_array($c->id, $value, true)) {
-                                            echo "checked";
-                                            }
-                                            }?>
+                      
+                         if (!empty($value)){
+                           if (in_array($c->value, $value)){
+                             $checked = "checked";
+                           }else{
+                            $checked = "";
 
-                                                               name="value[<?= $c->id ?>]" id="check<?=$c->id?>" onclick="this.form.submit();"><label
-                                    for="check<?=$c->id?>"><?= $c->value ?></label></li>
+                           }
+
+                       }
+                            ?>
+                            <li class="list-group-item">
+                            <input type="checkbox" <?=$checked?> onclick="this.form.submit();"
+                            name="value[<?= $c->value ?>]" id="check<?= $c->value ?>">
+                            <label for="check<?= $c->value ?>"><?= $c->value ?></label></li>
                         <?php }
                     }
                     ?>
-                 <!--    <input type="submit" class="btn btn-success" style="width: 100%" value="Поиск"> -->
-                </ul>
+<!--                     <input type="submit" class="btn btn-success" style="width: 100%" value="Поиск">
+ -->                </ul>
             </form>
         </div>
 

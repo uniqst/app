@@ -270,7 +270,6 @@ public function actionIndex()
      public function actionCategory()
      {
 
-
           $id = Yii::$app->request->get('id');
     $cat = InCategory::find()->where(['category_id' => Yii::$app->request->get('id')])->all();
       if (empty($product)){
@@ -286,12 +285,13 @@ public function actionIndex()
         foreach(Yii::$app->request->get('value') as $key => $val){
           $value[] = $key;
         }
+         $opt = CatOption::find()->where(['value' => $value])->all();
 
-         $opt = CatOption::find()->where(['id' => $value])->all();
          $op = [];
          foreach($opt as $o){
           $op[] = $o->product_id;
          }
+         print_r($value);
 
          $product = Product::find()->where(['category_id' => $ca, 'id' => $op])->with('category')->all();
 
@@ -300,7 +300,7 @@ public function actionIndex()
         }
     $title = Category::find()->where(["id" => $id])->one();
      }
-      return $this->render('category', compact('product', 'cat', 'title', 'value'));
+      return $this->render('category', compact('product', 'cat', 'title', 'value', 'op'));
      }
     
 
