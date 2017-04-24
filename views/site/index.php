@@ -20,7 +20,7 @@ $this->title = 'Итернет-магазин тезники';
 <div class="container-fluid">
 
 
-<div>
+    <div>
         <div id="slider" class="carousel slide main-carousel" data-ride="carousel">
             <ol class="carousel-indicators" >
                 <li data-target="#slider" data-slide-to="0" class="active" style="z-index: 30"></li>
@@ -34,7 +34,7 @@ $this->title = 'Итернет-магазин тезники';
 
                         <p class='animated fadeInDown first'><span > 24/7</span> НАШІ СПЕЦІАЛІСТИ</p>
                         <p class="animated zoomIn second">Акция Акция Акция</p>
-                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"  style="width: auto;height: 20px;margin: 8px 0"></span>
+                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png" style="width: auto;height: 20px;margin: 8px 0"></span>
                         <p class='animated fadeInDown third'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur consequuntur cum dignissimos dolorem ea earum.</p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ $this->title = 'Итернет-магазин тезники';
 
                         <p class='animated fadeInDown first'> <span>Акция Акция</span></p>
                         <p class="animated zoomIn second">От 19999 грн</p>
-                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-black.png"  style="width: auto;height: 20px;margin: 3px 0 8px"></span>
+                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-black.png" style="width: auto;height: 20px;margin: 3px 0 8px"></span>
                         <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
                     </div>
                 </div>
@@ -56,42 +56,42 @@ $this->title = 'Итернет-магазин тезники';
 
                         <p class='animated fadeInDown first'><span >90%</span> скидка</p>
                         <p class="animated zoomIn second">унікальна програма</p>
-                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"  style="width: auto;height: 20px;margin: 8px 0"></span>
-                      
+                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png" style="width: auto;height: 20px;margin: 8px 0"></span>
+
                         <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
                     </div>
                 </div>
-            
+
             </div>
-        
+
         </div>
 
-    </div> 
+    </div>
 
     <div class="row">
         <div class="col-md-3 categories">
             <ul>
                 <h3>Категории</h3>
                 <?php foreach ($category as $cat) { ?>
-                    <!--                    <li><a href="#">--><?//= $cat->name ?><!--</a></li>-->
+                <!— <li><a href="#">--><?//= $cat->name ?><!--</a></li>-->
 
-                    <div class="btn-group dropdown">
-                        <a  href="<?= Url::to(['site/category','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
+                        <div class="btn-group dropdown">
+                            <a href="<?= Url::to(['site/category','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
 
-                        <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
+                            <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
 
-                        <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
-                            <?php
-                            $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
-                            foreach($categ as $c){
-                                //$count = Product::find()->where(['category_id' => $c->id])->count();
-                                ?>
-                                <li><a href="<?= Url::to(['site/category','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
-                            <?php }?>
-                        </ul>
-                    </div>
+                            <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
+                                <?php
+                                $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
+                                foreach($categ as $c){
+//$count = Product::find()->where(['category_id' => $c->id])->count();
+                                    ?>
+                                    <li><a href="<?= Url::to(['site/category','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
+                                <?php }?>
+                            </ul>
+                        </div>
 
-                <?php } ?>
+                        <?php } ?>
             </ul>
 
 
@@ -110,12 +110,12 @@ $this->title = 'Итернет-магазин тезники';
             </div>
 
             <div class="row products">
-                 <?php
-            echo $this->render('_prod', [
+                <?php
+                echo $this->render('_prod', [
                     'product' => $product,
                     'value' => $value,
-                ]); 
-        ?>
+                ]);
+                ?>
             </div>
 
             <div class="content_top" style="border-color: #999999">
@@ -132,22 +132,14 @@ $this->title = 'Итернет-магазин тезники';
 
             <div class="row products">
                 <?php
-            echo $this->render('_prod', [
+                echo
+                $this->render('_prod', [
                     'product' => $top,
                     'value' => $value,
-                ]); 
-        ?>
+                ]);
+                ?>
             </div>
-<!---->
-<!--<<<<<<< HEAD-->
-<!---->
-<!--=======-->
-<!--            <div class="row products">-->
-<!--                --><?php //foreach ($product as $prod) {
-//                    include "_product";
-//                } ?>
-<!--            </div>-->
-<!-- >>>>>> parent of ec4c06c... 1312-->
+
         </div>
 
 
@@ -155,4 +147,3 @@ $this->title = 'Итернет-магазин тезники';
 
 
 </div>
-
