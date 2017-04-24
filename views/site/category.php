@@ -3,22 +3,33 @@
 /* @var $this yii\web\View */
 use app\components\CategoryWidget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\models\Qwe;
 use app\modules\admin\models\InCategory;
 use app\modules\admin\models\CatOption;
 use app\modules\admin\models\Product;
+use app\modules\admin\models\Category;
 use yii\db\ActiveQuery;
 
-$this->title = $title->name;
+$this->title = $categ->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 categories">
+    <div class="row" style="margin-top: -20px;">
+        <div class="col-md-3 categories" >
 
             
-            <h2><?= $this->title ?></h2>
+            <h3 style="margin-top: 25px;"><?= $this->title ?></h3>
+            <?php 
+            if($categ->parent_id == 0):?>
+                <?php foreach($cat as $c):?>
+                  <div class="btn-group dropdown">
+                        <a  href="<?= Url::to(['site/category','id'=>$c->id ])?>" class="btn" data-label-placement><?=$c->name ?></a>
+                        <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
+                    </div>
+                <?php endforeach;?>
+            <?php else:?>
             <form method="get" action="">
                 <input type="hidden" name="id" value="<?= Yii::$app->request->get('id') ?>" class="btn btn-success">
                 
@@ -40,6 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                    <?php endforeach; ?>
             </ul>
 </form>
+<?php endif;?>
 </div>
 
 <div class="col-md-9 prod-window">
