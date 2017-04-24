@@ -102,31 +102,32 @@ public function actionIndex()
     // ->limit($pagination->limit)
     // ->all();
 
-   $order = Order::find()->where(['status' => '1'])->all();
-   $top = [];
-   foreach ($order as $ord){
-       $top[] = $ord->id;
-   }
-   $top1 = [];
-   foreach ($top as $tp){
-       $t = OrderItem::find()->where(['order_id' => $tp])->all();
-       foreach ($t as $to){
-           $top1[$to->product_id] += $to->qty_item;
-       }
-   }
-   $count = $top1;
-   arsort($top1);
-   $top1 = array_keys($top1);
-   $a=implode(',', $top1);
-   if (count($top1) > 0){
-       $top = Product::find()->where(['id' => $top1])
-           ->orderBy([new \yii\db\Expression('FIELD (id, '.$a.')')])
-           ->limit('4')
-           ->all();
-   }
+  $order = Order::find()->where(['status' => '1'])->all();
+  $top = [];
+  foreach ($order as $ord){
+      $top[] = $ord->id;
+  }
+  $top1 = [];
+  foreach ($top as $tp){
+      $t = OrderItem::find()->where(['order_id' => $tp])->all();
+      foreach ($t as $to){
+          $top1[$to->product_id] += $to->qty_item;
+      }
+  }
+  $count = $top1;
+  arsort($top1);
+  $top1 = array_keys($top1);
+  $a=implode(',', $top1);
+  if (count($top1) > 0){
+      $top = Product::find()->where(['id' => $top1])
+          ->orderBy([new \yii\db\Expression('FIELD (id, '.$a.')')])
+          ->limit('4')
+          ->all();
+  }
     $product = Product::find()->limit('4')->all();
 
     return $this->render('index', compact('product','pagination', 'options', 'category', 'count', 'top'));
+
 }
 
     /**
