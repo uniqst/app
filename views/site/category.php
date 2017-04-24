@@ -9,12 +9,13 @@ use app\modules\admin\models\CatOption;
 use app\modules\admin\models\Product;
 use yii\db\ActiveQuery;
 
-$this->title = $title->name;
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 categories">
+        <div class="col-md-3 categories options">
 
 
             <h2><?= $this->title ?></h2>
@@ -24,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <ul class="list-group">
                     <?php foreach ($categ->inCategory as $c): ?>
                         <h4 class='list-group-item-heading'><?= $c->name ?></h4>
+                        <div style="margin-bottom: 20px">
                         <?php foreach($c->allOption as $option ): ?>
 
                             <?php if (!empty($value))
@@ -36,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                                     name="value[<?= $option->value ?>]" id="check<?= $option->value ?>">
                                 <label for="check<?= $option->value ?>"><?= $option->value ?></label></p>
                         <?php endforeach; ?>
+                        </div>
                     <?php endforeach; ?>
                 </ul>
             </form>

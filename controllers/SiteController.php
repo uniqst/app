@@ -298,9 +298,12 @@ public function actionIndex()
 
             }
         }
-       
-    $title = $categ->name;
-      return $this->render('category', compact('product', 'categ', 'title', 'value', 'op'));
+
+         $title = $categ->name;
+
+
+
+         return $this->render('category', compact('product', 'categ', 'title', 'value', 'op'));
      }
 
    //   public function actionTest(){

@@ -22,7 +22,7 @@ $this->title = 'Итернет-магазин тезники';
 
     <div>
         <div id="slider" class="carousel slide main-carousel" data-ride="carousel">
-            <ol class="carousel-indicators" >
+            <ol class="carousel-indicators">
                 <li data-target="#slider" data-slide-to="0" class="active" style="z-index: 30"></li>
                 <li data-target="#slider" data-slide-to="1" style="z-index: 30"></li>
                 <li data-target="#slider" data-slide-to="2" style="z-index: 30"></li>
@@ -32,10 +32,12 @@ $this->title = 'Итернет-магазин тезники';
 
                     <div class="carousel-caption slide1 animated fadeIn">
 
-                        <p class='animated fadeInDown first'><span > 24/7</span> НАШІ СПЕЦІАЛІСТИ</p>
+                        <p class='animated fadeInDown first'><span> 24/7</span> НАШІ СПЕЦІАЛІСТИ</p>
                         <p class="animated zoomIn second">Акция Акция Акция</p>
-                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png" style="width: auto;height: 20px;margin: 8px 0"></span>
-                        <p class='animated fadeInDown third'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur consequuntur cum dignissimos dolorem ea earum.</p>
+                        <span><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"
+                                   style="width: auto;height: 20px;margin: 8px 0"></span>
+                        <p class='animated fadeInDown third'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Aliquam aspernatur consequuntur cum dignissimos dolorem ea earum.</p>
                     </div>
                 </div>
 
@@ -43,10 +45,12 @@ $this->title = 'Итернет-магазин тезники';
 
                     <div class="carousel-caption slide2 animated fadeInRight">
 
-                        <p class='animated fadeInDown first'> <span>Акция Акция</span></p>
+                        <p class='animated fadeInDown first'><span>Акция Акция</span></p>
                         <p class="animated zoomIn second">От 19999 грн</p>
-                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-black.png" style="width: auto;height: 20px;margin: 3px 0 8px"></span>
-                        <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+                        <span><img class="animated fadeInUp fourth" src="images/pulse-long-black.png"
+                                   style="width: auto;height: 20px;margin: 3px 0 8px"></span>
+                        <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                        </p>
                     </div>
                 </div>
 
@@ -54,11 +58,13 @@ $this->title = 'Итернет-магазин тезники';
 
                     <div class="carousel-caption slide3 animated fadeIn">
 
-                        <p class='animated fadeInDown first'><span >90%</span> скидка</p>
+                        <p class='animated fadeInDown first'><span>90%</span> скидка</p>
                         <p class="animated zoomIn second">унікальна програма</p>
-                        <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png" style="width: auto;height: 20px;margin: 8px 0"></span>
+                        <span><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"
+                                   style="width: auto;height: 20px;margin: 8px 0"></span>
 
-                        <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+                        <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                        </p>
                     </div>
                 </div>
 
@@ -70,30 +76,64 @@ $this->title = 'Итернет-магазин тезники';
 
     <div class="row">
         <div class="col-md-3 categories">
-            <ul>
+            <ul class="hidden-xs hidden-sm">
                 <h3>Категории</h3>
                 <?php foreach ($category as $cat) { ?>
-                <!— <li><a href="#">--><?//= $cat->name ?><!--</a></li>-->
+                    <!--                    <li><a href="#">--><? //= $cat->name ?><!--</a></li>-->
 
-                        <div class="btn-group dropdown">
-                            <a href="<?= Url::to(['site/category','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
+                    <div class="btn-group dropdown">
+                        <a href="<?= Url::to(['site/category', 'id' => $cat->id]) ?>" class="btn"
+                           data-label-placement><?= $cat->name ?></a>
 
-                            <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
+                        <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span
+                                class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
 
-                            <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
-                                <?php
-                                $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
-                                foreach($categ as $c){
-//$count = Product::find()->where(['category_id' => $c->id])->count();
-                                    ?>
-                                    <li><a href="<?= Url::to(['site/category','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
-                                <?php }?>
-                            </ul>
-                        </div>
+                        <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
+                            <?php
+                            $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
+                            foreach ($categ as $c) {
+                                //$count = Product::find()->where(['category_id' => $c->id])->count();
+                                ?>
+                                <li><a href="<?= Url::to(['site/category', 'id' => $c['id']]) ?>"><?= $c['name']; ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
 
-                        <?php } ?>
+                <?php } ?>
             </ul>
 
+            <!-- START MOBILE MENU AREA -->
+            <div class="mobile-menu-area hidden-lg hidden-md">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul>
+
+
+                                        <?php foreach ($category as $cat): ?>
+                                            <? $categ = Category::find()->where(['parent_id' => $cat['id']])->all(); ?>
+                                            <button class="accordion" ><?= $cat['name'] ?></button>
+                                            <div class="panel">
+                                                <ul>
+                                                    <?php foreach ($categ as $c): ?>
+                                                        <li>
+                                                            <a href="<?= Url::to(['site/category', 'id' => $c['id']]) ?>"><?= $c['name']; ?></a>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                        <?php endforeach; ?>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </div>
@@ -113,7 +153,6 @@ $this->title = 'Итернет-магазин тезники';
                 <?php
                 echo $this->render('_prod', [
                     'product' => $product,
-                    'value' => $value,
                 ]);
                 ?>
             </div>
@@ -134,8 +173,7 @@ $this->title = 'Итернет-магазин тезники';
                 <?php
                 echo
                 $this->render('_prod', [
-                    'product' => $top,
-                    'value' => $value,
+                    'product' => $product,
                 ]);
                 ?>
             </div>
