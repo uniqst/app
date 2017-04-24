@@ -159,7 +159,7 @@ public function actionIndex()
      * @return string
      */
     public function actionLogout()
-    {   
+    {
 
         Yii::$app->user->logout();
 
@@ -193,7 +193,7 @@ public function actionIndex()
     {
         $qwe = new Qwe();
         $ewq = new Ewq();
-        if($qwe->load(Yii::$app->request->post()) && $qwe->save() 
+        if($qwe->load(Yii::$app->request->post()) && $qwe->save()
         && $ewq->load(Yii::$app->request->post()) && $ewq->save()){
         }
         return $this->render('about', compact('qwe', 'ewq'));
@@ -217,7 +217,7 @@ public function actionIndex()
         ->offset($pagination->offset)
         ->limit($pagination->limit)
         ->all();
-      
+
         return $this->render('catalog', compact('product','pagination'));
     }
 
@@ -258,7 +258,7 @@ public function actionIndex()
         $product = $query
         ->offset($pagination->offset)
         ->limit($pagination->limit)
-        ->all(); 
+        ->all();
         return $this->render('search', compact('product', 'pagination', 'q'));
      }
 
@@ -283,12 +283,12 @@ public function actionIndex()
       if (!empty(Yii::$app->request->get('value'))){
 
         $value = Yii::$app->request->get('value');
-     
-        $product = Product::find()->where(['category_id' => $categ->id])->with(['catOption' => 
+
+        $product = Product::find()->where(['category_id' => $categ->id])->with(['catOption' =>
             function(ActiveQuery $query) use($value){
                 foreach($value as $key => $val){
             $query->orWhere(['value'=> $key]);
-               } 
+               }
               }
             ])->all();
         }else{
