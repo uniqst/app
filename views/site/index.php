@@ -10,6 +10,7 @@ use app\models\Category;
 use app\models\Product;
 use app\components\CategoryWidget;
 use yii\helpers\Html;
+use app\models\Qwe;
 
 $this->title = 'Итернет-магазин тезники';
 
@@ -18,8 +19,15 @@ $this->title = 'Итернет-магазин тезники';
 ?>
 
 <div class="container-fluid">
-
-
+<?php $q = Qwe::findOne('5');
+   $q = explode("," , $q->name);
+   $q = [$q];
+   print_r($q);
+   foreach ($q[0] as $w){
+       echo $w;
+   }
+?>
+    
     <div>
         <div id="slider" class="carousel slide main-carousel" data-ride="carousel">
             <ol class="carousel-indicators" >
@@ -70,30 +78,8 @@ $this->title = 'Итернет-магазин тезники';
 
     <div class="row">
         <div class="col-md-3 categories">
-
-            <ul>
-                <h3>Категории</h3>
-                <?php foreach ($category as $cat) { ?>
-
-                        <div class="btn-group dropdown">
-                            <a href="<?= Url::to(['site/category','id'=>$cat->id ])?>" class="btn" data-label-placement><?=$cat->name ?></a>
-
-                            <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
-
-                            <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
-                                <?php
-                                $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
-                                foreach($categ as $c){
-                                    ?>
-                                    <li><a href="<?= Url::to(['site/category','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
-                                <?php }?>
-                            </ul>
-                        </div>
-
-                        <?php } ?>
-            </ul>
-
-
+    
+        <?php echo $this->render('_category', compact('category'))?>
 
         </div>
 
