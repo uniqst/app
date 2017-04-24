@@ -20,54 +20,14 @@ $this->title = 'Итернет-магазин тезники';
 <div class="container-fluid">
 
 
-
-    <div>
-        <!--        <div class="slider">-->
-        <!--            <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
-
-        <!--                <ol class="carousel-indicators">-->
-        <!--                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
-        <!--                    <li data-target="#myCarousel" data-slide-to="1"></li>-->
-        <!--                    <li data-target="#myCarousel" data-slide-to="2"></li>-->
-        <!--                    <li data-target="#myCarousel" data-slide-to="3"></li>-->
-        <!--                </ol>-->
-        <!---->
-
-        <!--                <div class="carousel-inner" role="listbox">-->
-        <!--                    <div class="item active">-->
-        <!--                        <img src="images/1397570876_akcia.jpg" class=" img img-responsive" alt="Chania">-->
-        <!--                    </div>-->
-        <!---->
-        <!--                    <div class="item ">-->
-        <!--                        <img src="images/1397570876_akcia.jpg" class=" img img-responsive" alt="Chania">-->
-        <!--                    </div>-->
-        <!---->
-        <!--                    <div class="item ">-->
-        <!--                        <img src="images/1397570876_akcia.jpg" class=" img img-responsive" alt="Chania">-->
-        <!--                    </div>-->
-        <!---->
-        <!--                    <div class="item ">-->
-        <!--                        <img src="images/1397570876_akcia.jpg" class=" img img-responsive" alt="Chania">-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!---->
-        <!---->
-        <!---->
-        <!---->
-        <!--            </div>-->
-        <!--        </div>-->
-
+<div>
         <div id="slider" class="carousel slide main-carousel" data-ride="carousel">
-            <!-- Indicators Starts -->
             <ol class="carousel-indicators" >
                 <li data-target="#slider" data-slide-to="0" class="active" style="z-index: 30"></li>
                 <li data-target="#slider" data-slide-to="1" style="z-index: 30"></li>
                 <li data-target="#slider" data-slide-to="2" style="z-index: 30"></li>
             </ol>
-            <!-- Indicators Ends -->
-            <!-- Wrapper for Slides Starts -->
             <div class="carousel-inner text-lite-color" role="listbox">
-                <!-- Slide #1 Starts -->
                 <div class="item sl1 active">
 
                     <div class="carousel-caption slide1 animated fadeIn">
@@ -97,39 +57,16 @@ $this->title = 'Итернет-магазин тезники';
                         <p class='animated fadeInDown first'><span >90%</span> скидка</p>
                         <p class="animated zoomIn second">унікальна програма</p>
                         <span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"  style="width: auto;height: 20px;margin: 8px 0"></span>
-                        <!--                        <p class='animated fadeInDown third'>Застосовуємо унікальну та <b>єдиноефективну,</b> визнану в усьому світі комплекс­ну програму позбавлення від <b>алкогольної</b> залежності</p>-->
+                      
                         <p class='animated fadeInDown third'>До Ваших послуг: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
                     </div>
                 </div>
-                <!-- Slide #1 Ends -->
-                <!--&lt;!&ndash; Slide #2 Starts &ndash;&gt;-->
-                <!--<div class="item">-->
-                <!--<img src="images/slider/slider-img2.jpg" alt="Image" class="img-responsive">-->
-                <!--<div class="carousel-caption slide1 animated fadeIn">-->
-
-                <!--<p class='animated fadeInDown first'><span > 24/7</span> НАШІ СПЕЦІАЛІСТИ ПРАЦЮЮТЬ ЦІЛОДОБОВО</p>-->
-                <!--<p class="animated zoomIn second">НЕВІДКЛАДНА ДОПОМОГА</p>-->
-                <!--<span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"  style="width: auto;height: 20px;margin: 8px 0"></span>-->
-                <!--<p class='animated fadeInDown third'>Ми зібрали для Вас найкращих фахівців, які готові допомогти у будь-який момент</p>-->
-                <!--</div>-->
-                <!--</div>-->
-
-                <!--<div class="item">-->
-                <!--<img src="images/slider/slider-img3.jpg" alt="Image" class="img-responsive">-->
-                <!--<div class="carousel-caption slide1 animated fadeIn">-->
-
-                <!--<p class='animated fadeInDown first'><span > 24/7</span> НАШІ СПЕЦІАЛІСТИ ПРАЦЮЮТЬ ЦІЛОДОБОВО</p>-->
-                <!--<p class="animated zoomIn second">НЕВІДКЛАДНА ДОПОМОГА</p>-->
-                <!--<span ><img class="animated fadeInUp fourth" src="images/pulse-long-white.png"  style="width: auto;height: 20px;margin: 8px 0"></span>-->
-                <!--<p class='animated fadeInDown third'>Ми зібрали для Вас найкращих фахівців, які готові допомогти у будь-який момент</p>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--&lt;!&ndash; Slide #3 Ends &ndash;&gt;-->
+            
             </div>
-            <!-- Wrapper for Slides Ends -->
+        
         </div>
 
-    </div>
+    </div> 
 
     <div class="row">
         <div class="col-md-3 categories">
@@ -173,9 +110,12 @@ $this->title = 'Итернет-магазин тезники';
             </div>
 
             <div class="row products">
-                <?php foreach ($product as $prod) {
-                    include "_product.php";
-                } ?>
+                 <?php
+            echo $this->render('_prod', [
+                    'product' => $product,
+                    'value' => $value,
+                ]); 
+        ?>
             </div>
 
             <div class="content_top" style="border-color: #999999">
@@ -191,9 +131,12 @@ $this->title = 'Итернет-магазин тезники';
             </div>
 
             <div class="row products">
-                <?php foreach ($top as $prod) {
-                    include "_product.php";
-                } ?>
+                <?php
+            echo $this->render('_prod', [
+                    'product' => $top,
+                    'value' => $value,
+                ]); 
+        ?>
             </div>
 <!---->
 <!--<<<<<<< HEAD-->

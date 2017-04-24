@@ -10,16 +10,14 @@ $this->title = 'Поиск|'.$q;
 <div class="container-fluid">
 
     <?php if(!empty($product)):?>
-        <h2>Поиск по запросу: <?=$q?></h2>
+        <h2>Поиск по запросу: <?=$q?>, найдено <?=count($product)?> товаров</h2>
         <div class="site-index">
             <div class="body-content">
                 <div class="row products">
                     <?php foreach($product as $prod){
                         include "_product.php";
                     }?>
-                    <?php foreach($product as $prod){
-                        include "_product.php";
-                    }?>
+              
                 </div>
                 <div class="clearfix"></div>
                 <?=LinkPager::widget(['pagination' => $pagination])?>

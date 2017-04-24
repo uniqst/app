@@ -269,39 +269,63 @@ public function actionIndex()
 
      public function actionCategory()
      {
+  $id = Yii::$app->request->get('id');
+     $categ = Category::findOne($id);
+     $cat = Category::find()->where(['parent_id' => $id])->all();
+     $ca = [];
+     foreach($cat as $c){
+         $ca[] = $c->id;
+     }
+     // var_dump($cat);
 
-          $id = Yii::$app->request->get('id');
-    $cat = InCategory::find()->where(['category_id' => Yii::$app->request->get('id')])->all();
-      if (empty($product)){
-        $categ = Category::find()->where(['parent_id' => $id])->all();
-        $ca = [];
-        foreach($categ as $cat){
-            $ca [] = $cat->id;
-        }
-        $cat = InCategory::find()->where(['category_id' => $ca])->all();
-        
-        if(Yii::$app->request->get('value')){
-          $value = [];
-        foreach(Yii::$app->request->get('value') as $key => $val){
-          $value[] = $key;
-        }
-         $opt = CatOption::find()->where(['value' => $value])->all();
+      if (!empty(Yii::$app->request->get('value'))){
 
-         $op = [];
-         foreach($opt as $o){
-          $op[] = $o->product_id;
-         }
-         print_r($value);
-
-         $product = Product::find()->where(['category_id' => $ca, 'id' => $op])->with('category')->all();
-
+        $value = Yii::$app->request->get('value');
+     
+        $product = Product::find()->where(['category_id' => $categ->id])->with(['catOption' => 
+            function(ActiveQuery $query) use($value){
+                foreach($value as $key => $val){
+            $query->orWhere(['value'=> $key]);
+               } 
+              }
+            ])->all();
         }else{
-        $product = Product::find()->where(['category_id' => $ca])->with('category')->all();
+            $product = Product::find()->where(['category_id' => $id])->all();
+            if (empty($product)){
+            $product = Product::find()->where(['category_id' => $ca])->all();
+
+            }
         }
-    $title = Category::find()->where(["id" => $id])->one();
+       
+    $title = $categ->name;
+      return $this->render('category', compact('product', 'categ', 'title', 'value', 'op'));
      }
-      return $this->render('category', compact('product', 'cat', 'title', 'value', 'op'));
-     }
+
+   //   public function actionTest(){
+   // $id = Yii::$app->request->get('id');
+   //   $categ = Category::findOne($id);
+     
+   //    if (!empty(Yii::$app->request->get('value'))){
+
+   //      $value = Yii::$app->request->get('value');
+     
+   //      $product = Product::find()->where(['category_id' => $categ->id])->with(['catOption' => 
+   //          function(ActiveQuery $query) use($value){
+   //              foreach($value as $key => $val){
+   //          $query->orWhere(['value'=> $key]);
+   //             } 
+   //            }
+   //          ]);
+       
+   //      $product = $product->all();
+      
+   //      }else{
+   //      $product = Product::find()->where(['category_id' => $id])->all();
+   //      }
+   //  $title = $categ->name;
+   //    return $this->render('test', compact('product', 'categ', 'title', 'value', 'op'));
+
+   //   }
     
 
 }

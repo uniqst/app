@@ -27,6 +27,17 @@ class InCategory extends \yii\db\ActiveRecord
         return $this->hasOne(CatOption::className(), ['incat_id' => 'id']);
     }
 
+     public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+
+     public function getAllOption()
+    {
+        return CatOption::find()->where(['incat_id' => $this->id])->groupBy('value')->all(); 
+    }
+
 
     /**
      * @inheritdoc

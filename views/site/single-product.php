@@ -43,7 +43,7 @@ $this->params['breadcrumbs'];
                         foreach($categ as $c){
                                 //$count = Product::find()->where(['category_id' => $c->id])->count();
                             ?>
-                            <li><a href="<?= Url::to(['site/catalog','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
+                            <li><a href="<?= Url::to(['site/category','id'=>$c['id'] ])?>"><?=$c['name'];?></a></li>
                             <?php }?>
                         </ul>
                     </div>
@@ -59,25 +59,65 @@ $this->params['breadcrumbs'];
 
                  <div class="flexslider">
                      <ul class="slides">
-                         <li data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
+                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
                              <img src="<?=Url::to(['web/'.$prod->photo])?>" />
 
                          </li>
-                         <li data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
+                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
                              <img src="<?=Url::to(['web/'.$prod->photo])?>" />
 
                          </li>
-                         <li data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
+                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
                              <img src="<?=Url::to(['web/'.$prod->photo])?>" />
 
                          </li>
-                         <li data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
+                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
                              <img src="<?=Url::to(['web/'.$prod->photo])?>" />
 
                          </li>
                      </ul>
                  </div>
+                <style type="text/css">
+               .img-container {
+                    line-height: 3000px;
+                    height: 300px;
+/*                    background: red;
+*/                }
 
+                .img-container img{
+                   vertical-align: middle;
+                   margin: auto;
+                }
+                </style>
+  <script type="text/javascript">
+                function fix_size() {
+        var images = $('.img-container img');
+        images.each(setsize);
+
+        function setsize() {
+            var img = $(this),
+                img_dom = img.get(0),
+                container = img.parents('.img-container');
+            if (img_dom.complete) {
+                resize();
+            } else img.one('load', resize);
+
+            function resize() {
+                if ((container.width() / container.height()) < (img_dom.width / img_dom.height)) {
+                    img.width('100%');
+                    img.height('auto');
+                    return;
+                }
+                img.height('100%');
+                img.width('auto');
+            }
+        }
+    }
+    $(window).on('resize', fix_size);
+    fix_size();
+
+
+        </script>
              </div>
              <div class="col-md-6 single-right">
                 <h3><?=$prod->name?></h3>
