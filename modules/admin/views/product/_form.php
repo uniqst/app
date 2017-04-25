@@ -47,7 +47,6 @@ use app\modules\admin\models\catOption;
 
         <?= $form->field($model, 'price_promo')->textInput() ?>
 
-        <?= $form->field($model, 'brand')->textInput(['maxlength' => true]) ?>
         
         <?
         if (!empty($catid)){

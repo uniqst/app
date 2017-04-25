@@ -94,6 +94,7 @@ class ProductController extends AdminController
         $createvalue = Yii::$app->request->post('createvalue');
         if ($createvalue){
         foreach($createvalue as $key => $val){
+            if (!empty($val)){
             $qwe = new CatOption();
             $qwe->incat_id = $key;
             $qwe->product_id = Yii::$app->request->get('id');
@@ -101,6 +102,7 @@ class ProductController extends AdminController
             $qwe->save();
           }
         }
+    }
         if (!empty($value)){
         foreach($value as $key => $val){
             $cat = CatOption::find()->where(['id' => $key])->one();

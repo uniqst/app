@@ -21,7 +21,7 @@ $this->title = 'Итернет-магазин тезники';
 
 
     <div>
-        <div id="slider" class="carousel slide main-carousel" data-ride="carousel">
+        <div id="slider" class="carousel slide main-carousel hidden-xs" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#slider" data-slide-to="0" class="active" style="z-index: 30"></li>
                 <li data-target="#slider" data-slide-to="1" style="z-index: 30"></li>
@@ -173,7 +173,7 @@ $this->title = 'Итернет-магазин тезники';
                 <?php
                 echo
                 $this->render('_prod', [
-                    'product' => $product,
+                    'product' => $top
                 ]);
                 ?>
             </div>

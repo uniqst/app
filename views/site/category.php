@@ -2,6 +2,7 @@
  
 use app\components\CategoryWidget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\models\Qwe;
 use app\modules\admin\models\InCategory;
@@ -9,6 +10,7 @@ use app\modules\admin\models\CatOption;
 use app\modules\admin\models\Product;
 use yii\db\ActiveQuery;
 
+$this->title = $title->name;
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -18,7 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-md-3 categories options">
 
 
-            <h2><?= $this->title ?></h2>
+            <h3><?= $this->title ?></h3>
+            <?php if($categ->id == 0):?>
+              <div class="btn-group dropdown">
+                <?php foreach($categ as $cat):?>
+                    <li><a href="<?=Url::to(['site/category', 'id' => $cat->id])?>" class="btn" data-label-placement=""><?=$cat->name?></a></li>
+                <?php endforeach;?>
+              </div>
+            <?php else:?>
             <form method="get" action="">
                 <input type="hidden" name="id" value="<?= Yii::$app->request->get('id') ?>" class="btn btn-success">
 
@@ -42,9 +51,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php endforeach; ?>
                 </ul>
             </form>
+        <?php endif;?>
         </div>
 
-        <div class="col-md-9 prod-window">
+        <div class="col-md-9 prod-window" style="margin-top: -25px;">
             <div class="row products">
                 <?php
                 echo $this->render('_product', [

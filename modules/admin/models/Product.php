@@ -57,7 +57,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'name', 'description', 'price', 'brand'], 'required'],
+            [['category_id', 'name', 'description', 'price'], 'required'],
             [['category_id', 'price', 'price_promo'], 'integer'],
             [['file'], 'file', 'skipOnEmpty' => true], 
             [['name', 'description', 'photo', 'brand'], 'string', 'max' => 10000],
@@ -79,7 +79,6 @@ class Product extends \yii\db\ActiveRecord
             'price' => 'Цена',
             'price_promo' => 'Акция',
             'photo' => 'Фото',
-            'brand' => 'Бренд',
             'file' => 'Картинка'
         ];
     }

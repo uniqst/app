@@ -24,7 +24,7 @@ class InCategory extends \yii\db\ActiveRecord
 
     public function getCatOption()
     {
-        return $this->hasOne(CatOption::className(), ['incat_id' => 'id']);
+        return $this->hasMany(CatOption::className(), ['incat_id' => 'id']);
     }
 
      public function getCategory()
@@ -45,7 +45,6 @@ class InCategory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id'], 'integer'],
             [['name', 'value'], 'string', 'max' => 255],
         ];
     }
