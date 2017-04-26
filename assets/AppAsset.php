@@ -40,6 +40,7 @@ class AppAsset extends AssetBundle
         'js/bootstrap-dropdownhover.min.js',
         'js/owl.carousel.min.js',
         'js/jquery.maskedinput.js',
+        'js/jqBootstrapValidation.js',
         'js/main.js',
     ];
     public $depends = [

@@ -54,8 +54,7 @@ $q = Yii::$app->request->get('q');
                 <img style="height: 50px;" class="img img-responsive" src="<?= Url::to(['web/upload/logo.jpg']) ?>">
             </div>
 
-            <div style="text-align: center; position: relative"><span class="glyphicon glyphicon-earphone"
-                                                                      style="margin-right: 3px;font-size: 16px"></span>+38
+            <div style="text-align: center; position: relative"><span class="glyphicon glyphicon-earphone" style="margin-right: 3px;font-size: 16px"></span>+38
                 067 555 10 50
             </div>
             <div style="text-align: center; position: relative"><span class="glyphicon glyphicon-earphone"
@@ -64,7 +63,7 @@ $q = Yii::$app->request->get('q');
             </div>
 
         </div>
-
+w
     </div>
 
     <?
@@ -94,7 +93,8 @@ $q = Yii::$app->request->get('q');
                             <input class="form-control" type="text" placeholder="Введите запрос..." name="q" value="' . $q . '">
                         </div>
                          <button type="submit" class="btn btn-default">Искать</button>
-             </form>'
+             </form>',
+            '<li class="myorder"><a href="#" onclick="getCart()" >Корзина<span class="glyphicon glyphicon-shopping-cart" style="margin-left: 10px"></span></a></li>',
         ],
     ]);
     NavBar::end();
