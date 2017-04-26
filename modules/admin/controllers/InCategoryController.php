@@ -63,6 +63,7 @@ class InCategoryController extends Controller
      */
     public function actionCreate()
     {
+        $this->layout = false;
         $model = new InCategory();
 
         if ($model->load(Yii::$app->request->post())) {

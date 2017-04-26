@@ -13,9 +13,6 @@ use yii\db\ActiveQuery;
 $this->title = $title->name;
 $this->params['breadcrumbs'][] = $this->title;
 
-
-
-
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -39,14 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div style="margin-bottom: 20px">
                         <?php foreach($c->allOption as $option ): ?>
 
-                            <?php if (!empty($value))
-                                if (in_array($option->value, array_keys($value)))
+                            <?php if (!empty($val))
+                                if (in_array((string)$option->value, (array)$val))
                                     $checked = "checked";
                                 else
                                     $checked = "";
                             ?>
                             <p class="list-group-item-text"> <input type="checkbox" <?=$checked?> onclick="this.form.submit();"
-                                                                    name="value[<?= $option->value ?>]" id="check<?= $option->value ?>">
+                                                                    name='value[<?= (string)$option->value ?>]' id="check<?= $option->value ?>">
                                 <label for="check<?= $option->value ?>"><?= $option->value ?></label></p>
                         <?php endforeach; ?>
                         </div>

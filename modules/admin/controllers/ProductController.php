@@ -58,6 +58,7 @@ class ProductController extends AdminController
 
     public function actionCreate()
     {
+        $this->layout = false;
         $catid - new InCategory();
         $model = new Product();
         if ($model->load(Yii::$app->request->post())) {
