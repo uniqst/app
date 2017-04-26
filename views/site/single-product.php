@@ -218,8 +218,8 @@ $this->params['breadcrumbs'];
                             <table class="table">
                                 <?php foreach ($incat as $in){ ?>
                                 <tr>
-                                    <td><?=$in->inCategory->name?></td>
-                                    <td><?=$in->value?></td>
+                                    <td><?=$in->name?></td>
+                                    <td><?=$in->catOption->value?></td>
                                 </tr>
                                 <?php }?>
                             </table>

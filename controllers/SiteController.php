@@ -124,7 +124,7 @@ public function actionIndex()
           ->limit('4')
           ->all();
   }
-    $product = Product::find()->limit('4')->all();
+    $product = Product::find()->limit('4')->orderBy(['id' => SORT_DESC])->all();
 
     return $this->render('index', compact('product','pagination', 'options', 'category', 'count', 'top'));
 
@@ -232,7 +232,9 @@ public function actionIndex()
     {
      $category = Category::find()->where(['parent_id' => 0])->all();
      $prod = Product::find()->where(['id' => $id])->one();
-     $incat = CatOption::find()->where(['product_id' => $id])->with('inCategory')->all();
+     $incat = InCategory::find()->with(['catOption' => function(ActiveQuery $query) use($id){
+            $query->where(['product_id' => $id]);
+     }])->all();
 
      return $this->render('single-product', [
         'id' => $id,
@@ -284,16 +286,16 @@ public function actionIndex()
             $query->orWhere(['value'=> $key]);
                }
               }
-            ])->all();
+            ])->orderBy(['id' => SORT_DESC])->all();
         }else{
-            $product = Product::find()->where(['category_id' => $id])->all();
+            $product = Product::find()->where(['category_id' => $id])->orderBy(['id' => SORT_DESC])->all();
             if (empty($product)){
              $categ = Category::find()->where(['parent_id' => $id])->all();
              $ca = [];
              foreach($categ as $c){
                  $ca[] = $c->id;
              }
-            $product = Product::find()->where(['category_id' => $ca])->all();
+            $product = Product::find()->where(['category_id' => $ca])->orderBy(['id' => SORT_DESC])->all();
             }
         }
          $title = Category::find()->where(['id' => $id])->one();
