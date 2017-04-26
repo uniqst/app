@@ -14,6 +14,8 @@ $this->title = $title->name;
 $this->params['breadcrumbs'][] = $this->title;
 
 
+
+
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -59,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php
                 echo $this->render('_product', [
                     'product' => $product,
-                    'value' => $value,
+
                 ]);
                 ?>
             </div>

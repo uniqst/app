@@ -173,7 +173,7 @@ $this->title = 'Итернет-магазин тезники';
                 <?php
                 echo
                 $this->render('_prod', [
-                    'product' => $top
+                    'product' => $product
                 ]);
                 ?>
             </div>

@@ -123,6 +123,8 @@ $(document).ready(function() {
 	$('.main-carousel').carousel({
 		interval: 7000
 	});
+
+	$(".phone-mask").mask("+380 (99) 999-9999");
 });
 
 

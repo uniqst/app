@@ -39,9 +39,9 @@ $q = Yii::$app->request->get('q');
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
 
     <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <?php $this->head() ?>
 </head>
 <body>
@@ -51,33 +51,39 @@ $q = Yii::$app->request->get('q');
     <div class="header">
         <div class="container-fluid padding-lrg header-desc">
             <div class="pull-left">
-    <img style="height: 50px;" class="img img-responsive" src="<?=Url::to(['web/upload/logo.jpg'])?>">
+                <img style="height: 50px;" class="img img-responsive" src="<?= Url::to(['web/upload/logo.jpg']) ?>">
             </div>
 
-            <div style="text-align: center; position: relative">  <span class="glyphicon glyphicon-earphone" style="margin-right: 3px;font-size: 16px"></span>+38 067 555 10 50</div>
-             <div style="text-align: center; position: relative">  <span class="glyphicon glyphicon-earphone" style="margin-right: 3px;font-size: 16px"></span>+38 067 555 10 50</div>
-           
+            <div style="text-align: center; position: relative"><span class="glyphicon glyphicon-earphone"
+                                                                      style="margin-right: 3px;font-size: 16px"></span>+38
+                067 555 10 50
+            </div>
+            <div style="text-align: center; position: relative"><span class="glyphicon glyphicon-earphone"
+                                                                      style="margin-right: 3px;font-size: 16px"></span>+38
+                067 555 10 50
+            </div>
+
         </div>
-    
+
     </div>
-    
-        <?
-        
+
+    <?
+
     NavBar::begin([
         'options' => [
 
         ],
         'innerContainerOptions' => ['class' => 'main-nav'],
     ]);
-      $pages = Pages::find()->all();
-      $menuItems = [['label' => 'Главная' , 'url' => '/']];
-        foreach ($pages as $page) {
-                    $menuItems[] = ['label' => $page->label , 'url' => Url::to(['site/pages', 'alias' => $page->alias])];
-                }
+    $pages = Pages::find()->all();
+    $menuItems = [['label' => 'Главная', 'url' => '/']];
+    foreach ($pages as $page) {
+        $menuItems[] = ['label' => $page->label, 'url' => Url::to(['site/pages', 'alias' => $page->alias])];
+    }
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar'],
-          'items' => 
+        'items' =>
             $menuItems,
     ]);
     echo Nav::widget([
@@ -85,7 +91,7 @@ $q = Yii::$app->request->get('q');
         'items' => [
             '<form class="navbar-form navbar-left" method="get" action="/site/search">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Search" name="q" value="'.$q.'">
+                            <input class="form-control" type="text" placeholder="Введите запрос..." name="q" value="' . $q . '">
                         </div>
                          <button type="submit" class="btn btn-default">Искать</button>
              </form>'
@@ -100,64 +106,65 @@ $q = Yii::$app->request->get('q');
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
         </div>
-         <?= $content ?>
+        <?= $content ?>
     </div>
 </div>
 
 <div class="footer">
     <div class="wrap container-fluid" style="color:#325252;padding-top: 20px">
-<!--        <div class="section group">-->
-<!--            <div class="col_1_of_4 span_1_of_4">-->
-<!--                <h4>Information</h4>-->
-<!--                <ul>-->
-<!--                    <li><a href="about.html">About Us</a></li>-->
-<!--                    <li><a href="contact.html">Customer Service</a></li>-->
-<!--                    <li><a href="#">Advanced Search</a></li>-->
-<!--                    <li><a href="delivery.html">Orders and Returns</a></li>-->
-<!--                    <li><a href="contact.html">Contact Us</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="col_1_of_4 span_1_of_4">-->
-<!--                <h4>Why buy from us</h4>-->
-<!--                <ul>-->
-<!--                    <li><a href="about.html">About Us</a></li>-->
-<!--                    <li><a href="contact.html">Customer Service</a></li>-->
-<!--                    <li><a href="#">Privacy Policy</a></li>-->
-<!--                    <li><a href="contact.html">Site Map</a></li>-->
-<!--                    <li><a href="#">Search Terms</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="col_1_of_4 span_1_of_4">-->
-<!--                <h4>My account</h4>-->
-<!--                <ul>-->
-<!--                    <li><a href="contact.html">Sign In</a></li>-->
-<!--                    <li><a href="index.html">View Cart</a></li>-->
-<!--                    <li><a href="#">My Wishlist</a></li>-->
-<!--                    <li><a href="#">Track My Order</a></li>-->
-<!--                    <li><a href="contact.html">Help</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--            <div class="col_1_of_4 span_1_of_4">-->
-<!--                <h4>Contact</h4>-->
-<!--                <ul>-->
-<!--                    <li><span>+91-123-456789</span></li>-->
-<!--                    <li><span>+00-123-000000</span></li>-->
-<!--                </ul>-->
-<!---->
-<!--            </div>-->
-<!--        </div>-->
+        <!--        <div class="section group">-->
+        <!--            <div class="col_1_of_4 span_1_of_4">-->
+        <!--                <h4>Information</h4>-->
+        <!--                <ul>-->
+        <!--                    <li><a href="about.html">About Us</a></li>-->
+        <!--                    <li><a href="contact.html">Customer Service</a></li>-->
+        <!--                    <li><a href="#">Advanced Search</a></li>-->
+        <!--                    <li><a href="delivery.html">Orders and Returns</a></li>-->
+        <!--                    <li><a href="contact.html">Contact Us</a></li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--            <div class="col_1_of_4 span_1_of_4">-->
+        <!--                <h4>Why buy from us</h4>-->
+        <!--                <ul>-->
+        <!--                    <li><a href="about.html">About Us</a></li>-->
+        <!--                    <li><a href="contact.html">Customer Service</a></li>-->
+        <!--                    <li><a href="#">Privacy Policy</a></li>-->
+        <!--                    <li><a href="contact.html">Site Map</a></li>-->
+        <!--                    <li><a href="#">Search Terms</a></li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--            <div class="col_1_of_4 span_1_of_4">-->
+        <!--                <h4>My account</h4>-->
+        <!--                <ul>-->
+        <!--                    <li><a href="contact.html">Sign In</a></li>-->
+        <!--                    <li><a href="index.html">View Cart</a></li>-->
+        <!--                    <li><a href="#">My Wishlist</a></li>-->
+        <!--                    <li><a href="#">Track My Order</a></li>-->
+        <!--                    <li><a href="contact.html">Help</a></li>-->
+        <!--                </ul>-->
+        <!--            </div>-->
+        <!--            <div class="col_1_of_4 span_1_of_4">-->
+        <!--                <h4>Contact</h4>-->
+        <!--                <ul>-->
+        <!--                    <li><span>+91-123-456789</span></li>-->
+        <!--                    <li><span>+00-123-000000</span></li>-->
+        <!--                </ul>-->
+        <!---->
+        <!--            </div>-->
+        <!--        </div>-->
 
         <div class="col-sm-5">
-<h4>Company name</h4>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at commodi ea eum fugit inventore ipsum numquam repellendus soluta vel. </p>
+            <h4>My-Dream</h4>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at commodi ea eum fugit inventore
+                ipsum numquam repellendus soluta vel. </p>
         </div>
         <div class="col-sm-3 col-md-offset-1">
-<h4>Контакты</h4>
+            <h4>Контакты</h4>
             <span>email@email.com.ua</span><br>
             <span>+380934445556</span><br>
         </div>
         <div class="col-sm-3 social">
-           <h4>Социальные сети</h4>
+            <h4>Социальные сети</h4>
             <i class="fa fa-twitter"></i>
             <i class="fa fa-facebook"></i>
             <i class="fa fa-youtube"></i>
@@ -167,20 +174,119 @@ $q = Yii::$app->request->get('q');
 
     </div>
     <div class="copy_right">
-        <p>Company Name © Все права защищены | Разработчики сайта:<a href="http://www.uniq-st.com" target="_blank"> uniq-st.com</a></p>
+        <p>Company Name © Все права защищены | Разработчики сайта:<a href="http://www.uniq-st.com" target="_blank">
+                uniq-st.com</a></p>
     </div>
 </div>
+
 <?php
-     Modal::Begin([
-        'header' => '<h2>Корзина</h2>',
-        'id' => 'cart',
-        'size' => 'modal-lg',
-        'footer' => '<button class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-        <a href="'.Url::to(["cart/view"]).'" class="btn btn-success">Оформить заказ</a>
+Modal::Begin([
+    'header' => '<h2>Корзина</h2>',
+    'id' => 'cart',
+    'size' => 'modal-lg',
+    'footer' => '<button class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+        <a href="' . Url::to(["cart/view"]) . '" class="btn btn-success">Оформить заказ</a>
         <button class="btn btn-danger" onclick="clearCart()" >Очистить корзину</button>'
-        ]);
-     Modal::End();
+]);
+Modal::End();
 ?>
+
+<span style="position: fixed;bottom: 5%;right: 1%;z-index: 10;font-size:60px;" id='scrollup'
+      class="spanMy text-uppercase text-center phone-icone-fixed  ">
+
+       <a href="#" class="btn btn-sm btn-transparent inverse" data-toggle="modal" data-target="#phoneModal"><i
+               class="glyphicon glyphicon-earphone" style=""></i>
+       </a>
+</span>
+
+
+<div class="reanimation-modal modal fade" id="phoneModal" role="dialog">
+    <div class="modal-dialog" style="background-color: #ffffff;padding:28px">
+        <div class="modal-main">
+            <h3 class="text-center">Бесплатная консультация</h3>
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <form action="#" class="appointment-form" id="phoneForm">
+
+
+                <!-- Nested Row Starts -->
+                <div class="row">
+                    <!-- Name Field Starts -->
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            <label for="name" class="sr-only">Your Name: </label>
+                            <input type="text" class="form-control animation" name="name" id="name" required="required"
+                                   placeholder="Ваше имя">
+                            <span class="fa fa-user form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <!-- Name Field Ends -->
+                    <!-- Email Field Starts -->
+                    <input type="hidden" value="null" name="email" id="email">
+
+                    </input>
+                    <!-- Email Field Ends -->
+                    <!-- Phone No Field Starts -->
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            <label for="phone" class="sr-only">Phone Number: </label>
+                            <input type="text" class="form-control animation phone-mask" name="phone" id="phone"
+                                   required="required"
+                                   placeholder="Ваш телефон">
+                            <span class="fa fa-phone form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            <label for="email" class="sr-only">E-mail Address: </label>
+                            <input type="text" class="form-control animation" name="email" id="email" required="required"
+                                   placeholder="Электронный адрес">
+                            <span class="fa fa-envelope form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group has-feedback">
+                            <label for="message" class="sr-only">Message: </label>
+                            <textarea class="form-control animation" rows="8" name="message" id="message" required
+                                  placeholder="Сообщение"></textarea>
+                            <span class="fa fa-comment form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+
+                    <!-- Phone No Field Ends -->
+                    <!-- Message Field Starts -->
+                    <input type="hidden" value="..." name="message" id="message">
+                    <!-- Message Field Ends -->
+                    <div id="success2"></div>
+                    <div class="text-center col-sm-12">
+                        <input type="submit" class="btn btn-secondary animation col-sm-12" value="ПОЗВОНИТЕ МНЕ!">
+                    </div>
+                </div>
+                <!-- Nested Row Ends -->
+            </form>
+        </div>
+
+
+        <!-- Modal content-->
+        <div class='modal-success hidden'><p class='text-center'><span class='fa fa-check-circle'></span></p>
+            <h3>Спасибо! Наши специалисты свяжутся</h3>
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <h3>с Вами в ближайшее время!</h3></div>
+
+    </div>
+
+
+</div>
+
 <?php $this->endBody() ?>
 </body>
 </html>
