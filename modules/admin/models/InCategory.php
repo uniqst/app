@@ -45,7 +45,7 @@ class InCategory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'value'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -55,10 +55,9 @@ class InCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'category_id' => 'Category ID',
-            'name' => 'Name',
-            'value' => 'Value',
+            'id' => '#',
+            'category_id' => 'Родительская категория',
+            'name' => 'Название',
         ];
     }
 }

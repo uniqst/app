@@ -6,7 +6,6 @@ use yii\filters\AccessControl;
 
 
 class AdminController extends Controller{
-
 	public function behaviors(){
 	  return [
 		'access' => [

@@ -12,7 +12,7 @@ $this->title = 'Категории';
 ?>
 <div class="category-index">
     <p>
-        <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создание категорию', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

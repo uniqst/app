@@ -36,7 +36,7 @@ class InCategoryController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => InCategory::find()->with('category'),
+            'query' => InCategory::find(),
         ]);
 
         return $this->render('index', [
@@ -65,8 +65,11 @@ class InCategoryController extends Controller
     {
         $model = new InCategory();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->category_id = Yii::$app->request->post('cat_id');
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
+
         } else {
             return $this->render('create', [
                 'model' => $model,

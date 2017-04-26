@@ -9,7 +9,6 @@ use yii\widgets\ActiveForm;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Статистика заказов заказов';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-statistica">
         <h2>Всего продано товаров: <?=$all?></h2>
