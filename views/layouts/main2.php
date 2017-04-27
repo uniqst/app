@@ -63,7 +63,7 @@ $q = Yii::$app->request->get('q');
             </div>
 
         </div>
-w
+
     </div>
 
     <?

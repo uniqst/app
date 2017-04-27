@@ -281,7 +281,6 @@ $categ = Category::findOne($id);
         foreach ($value as $key => $v){
             $val[] = (string)$key;
         }
-        print_r($val);
         $product = Product::find()->where(['category_id' => $categ->id])->with(['catOption' =>
             function(ActiveQuery $query) use($value){
                 foreach($value as $key => $val){

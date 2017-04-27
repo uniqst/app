@@ -12,22 +12,12 @@ use yii\filters\VerbFilter;
 /**
  * InCategoryController implements the CRUD actions for InCategory model.
  */
-class InCategoryController extends Controller
+class InCategoryController extends AdminController
 {
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+
 
     /**
      * Lists all InCategory models.

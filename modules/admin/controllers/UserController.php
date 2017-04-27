@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class UserController extends AdminController
 {
 
     /**
@@ -37,7 +37,6 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-         $this->layout = false;
 
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -51,11 +50,12 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-
         $this->layout = false;
         $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->password = Yii::$app->getSecurity()->generatePasswordHash(Yii::$app->request->post('User')['password']);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -72,7 +72,6 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-                $this->layout = false;
 
         $model = $this->findModel($id);
 

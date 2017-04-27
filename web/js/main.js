@@ -1,4 +1,6 @@
-
+$( ".inverse").hover(function() {
+  $( ".inverse" ).effect( "shake" );
+});
 
 
     $(function(){

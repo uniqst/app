@@ -42,6 +42,7 @@ class AppAsset extends AssetBundle
         'js/jquery.maskedinput.js',
         'js/jqBootstrapValidation.js',
         'js/main.js',
+        '//code.jquery.com/ui/1.12.1/jquery-ui.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
