@@ -271,16 +271,14 @@ public function actionIndex()
      }
 
      public function actionCategory()
+
      {
-  $id = Yii::$app->request->get('id');
-       $categ = Category::findOne($id);
-   
-
+          $id = Yii::$app->request->get('id');
+$categ = Category::findOne($id);
       if (!empty(Yii::$app->request->get('value'))){
-
         $value = Yii::$app->request->get('value');
         $val = [];
-        foreach($value as $key => $v){
+        foreach ($value as $key => $v){
             $val[] = (string)$key;
         }
         print_r($val);
@@ -292,7 +290,7 @@ public function actionIndex()
               }
             ])->orderBy(['id' => SORT_DESC])->all();
         }else{
-            $product = Product::find()->where(['category_id' => $id])->orderBy(['id' => SORT_DESC])->all();
+        $product = Product::find()->where(['category_id' => $id])->orderBy(['id' => SORT_DESC])->all();
             if (empty($product)){
              $categ = Category::find()->where(['parent_id' => $id])->all();
              $ca = [];
@@ -303,7 +301,8 @@ public function actionIndex()
             }
         }
          $title = Category::find()->where(['id' => $id])->one();
-         return $this->render('category', compact('product', 'categ', 'title', 'value', 'op' , 'val'));
+         return $this->render('category', compact('product', 'categ', 'title', 'value', 'op', 'val'));
+
      }
 
    //   public function actionTest(){

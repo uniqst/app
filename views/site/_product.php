@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 
  ?>
+ <?php foreach ($product as $prod):?>
   <?php if (!empty(Yii::$app->request->get('value'))):?>
    <?php if(count($value) == count($prod->catOption)):?>
           <div class="col-sm-6 col-md-6 col-lg-3">
@@ -43,7 +44,7 @@ use yii\helpers\Url;
             </div>
          </div>
         <?php endif;?>
-
+    <?php endforeach;?>
         <script type="text/javascript">
                 function fix_size() {
         var images = $('.img-container img');
