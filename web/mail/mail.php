@@ -1,5 +1,8 @@
 <?
 	if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")) {
+
+//		echo "dfdf";echo "dfdf";echo "dfdf";echo "dfdf";echo "dfdf";
+
 	        $to = 'info@mozhu.com.ua';
 //		$to = 'info@mozhu.com.ua';
 	        $subject = 'Зателефонуйте мені';

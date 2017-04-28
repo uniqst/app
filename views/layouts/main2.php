@@ -38,20 +38,28 @@ $q = Yii::$app->request->get('q');
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
 
+
+
     <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+<!--    <script-->
+<!--        src="   https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"-->
+<!--        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="-->
+<!--        crossorigin="anonymous"></script>-->
     <?php $this->head() ?>
 </head>
 <body>
+
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
     <div class="header">
         <div class="container-fluid padding-lrg header-desc">
             <div class="pull-left">
-                <img style="height: 50px;" class="img img-responsive" src="<?= Url::to(['web/upload/logo.jpg']) ?>">
+                <a href="#"><img style="height: 50px;" class="img img-responsive" src="<?= Url::to(['web/upload/logo.jpg']) ?>"></a>
             </div>
 
             <div style="text-align: center; position: relative"><span class="glyphicon glyphicon-earphone" style="margin-right: 3px;font-size: 16px"></span>+38
@@ -100,7 +108,7 @@ $q = Yii::$app->request->get('q');
     NavBar::end();
     ?>
 
-    <div class="content">
+    <div class="content" >
         <div class="container-fluid" style="margin-top: 20px;">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -110,7 +118,8 @@ $q = Yii::$app->request->get('q');
     </div>
 </div>
 
-<div class="footer">
+<div class="footer  fadeIn animated " style=" -webkit-animation-duration: 12s; /* Safari 4.0 - 8.0 */
+    animation-duration: 2s;">
     <div class="wrap container-fluid" style="color:#325252;padding-top: 20px">
         <!--        <div class="section group">-->
         <!--            <div class="col_1_of_4 span_1_of_4">-->
@@ -192,7 +201,7 @@ Modal::End();
 ?>
 
 <span style="position: fixed;bottom: 5%;right: 1%;z-index: 10;font-size:60px;" id='scrollup'
-      class="spanMy text-uppercase text-center phone-icone-fixed  ">
+      class="spanMy text-uppercase text-center phone-icone-fixed wow pulse animated" data-wow-duration="2.0s" data-wow-iteration="infinite">
 
        <a href="#" class="btn btn-sm btn-transparent inverse" data-toggle="modal" data-target="#phoneModal"><i
                class="glyphicon glyphicon-earphone" style=""></i>
@@ -287,7 +296,12 @@ Modal::End();
 
 </div>
 
+
 <?php $this->endBody() ?>
+<script>
+
+    new WOW().init();
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
 
     ];
     public $js = [
-
+        'js/wow.min.js',
         'js/jquery.flexslider-min.js',
         'js/jquery.cookie.js',
         'js/jquery.accordion.js',
@@ -41,8 +41,9 @@ class AppAsset extends AssetBundle
         'js/owl.carousel.min.js',
         'js/jquery.maskedinput.js',
         'js/jqBootstrapValidation.js',
+        'js/contact_me.js',
         'js/main.js',
-        '//code.jquery.com/ui/1.12.1/jquery-ui.js'
+   /*     '//code.jquery.com/ui/1.12.1/jquery-ui.js'*/
     ];
     public $depends = [
         'yii\web\YiiAsset',
