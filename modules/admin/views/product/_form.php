@@ -35,6 +35,8 @@ use app\modules\admin\models\catOption;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'group')->textInput(['maxlength' => true]) ?>
+
     <?php
     echo $form->field($model, 'description')->widget(CKEditor::className(),[
         'editorOptions' => [

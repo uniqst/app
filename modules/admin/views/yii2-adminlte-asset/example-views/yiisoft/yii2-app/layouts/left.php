@@ -6,7 +6,7 @@
         <div class="user-panel">
             <div class="pull-left image">
                 <!-- <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/> -->
-            <i class="glyphicon glyphicon-user" style="color: white; font-size: 50px;"></i>
+            <i class="fa fa-user-circle-o" style="color: white; font-size: 50px;"></i>
 
             </div>
             <div class="info">
@@ -49,13 +49,12 @@
                     //     ],
                     // ],
                       ['label' => 'Категории', 'icon' => ' fa fa-table', 'url' => ['/admin/category/index']],
-                            ['label' => 'Свойства категорий', 'icon' => ' fa fa-table', 'url' => ['/admin/in-category/index']],
-                            ['label' => 'Товары', 'icon' => ' fa fa-table', 'url' => ['/admin/product/index']],
-                            ['label' => 'Заказы', 'icon' => ' fa fa-table', 'url' => ['/admin/order/index']],
-                            ['label' => 'Страницы', 'icon' => ' fa fa-table', 'url' => ['/admin/pages/index']],
-
-
-                       ['label' => 'Cтатистика продаж', 'icon' => ' fa fa-money', 'url' => ['/admin/order/statistica',]],
+                            ['label' => 'Свойства категорий', 'icon' => ' fa fa-caret-square-o-right', 'url' => ['/admin/in-category/index']],
+                            ['label' => 'Товары', 'icon' => ' fa fa-truck', 'url' => ['/admin/product/index']],
+                            ['label' => 'Заказы', 'icon' => ' fa fa-first-order', 'url' => ['/admin/order/index']],
+                            ['label' => 'Страницы', 'icon' => ' fa fa-text-height', 'url' => ['/admin/pages/index']],
+                            ['label' => 'Пользователи', 'icon' => ' fa fa-address-book-o', 'url' => ['/admin/user']],
+                            ['label' => 'Cтатистика продаж', 'icon' => ' fa fa-money', 'url' => ['/admin/order/statistica',]],
                        
                        // ['label' => 'Настройки', 'icon' => ' fa fa-cog', 'url' => ['/admin/options/update', 'id' => 1]],
                 ],

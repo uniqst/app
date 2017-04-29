@@ -60,7 +60,7 @@ class Product extends \yii\db\ActiveRecord
             [['category_id', 'name', 'description', 'price'], 'required'],
             [['category_id', 'price', 'price_promo'], 'integer'],
             [['file'], 'file', 'skipOnEmpty' => true], 
-            [['name', 'description', 'photo', 'brand'], 'string', 'max' => 10000],
+            [['name', 'description', 'photo'], 'string', 'max' => 10000],
       
         ];
     }

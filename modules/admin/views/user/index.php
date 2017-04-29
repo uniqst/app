@@ -35,7 +35,6 @@ $this->title = 'Пользователи';
             'id',
             'username',
             'password',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

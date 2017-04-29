@@ -236,6 +236,26 @@ public function actionIndex()
             $query->where(['product_id' => $id]);
      }])->all();
 
+     $clone = Product::find()->where(['group' => $prod->group])->all();
+     $cl = [];
+     foreach ($clone as $c){
+        $cl[] = $c->id;
+     }
+     $clone = CatOption::find()->where(['product_id' => $cl])->all();
+
+     $cl = [];
+     foreach ($clone as $c){
+        $cl[] = $c->value;
+     }
+     $cl = array_count_values ($cl);
+     $clone = [];
+     foreach ($cl as $key => $val){
+        if ($val == 1){
+        $clone[] = $key;
+        }
+     }
+
+     print_r($clone);
      return $this->render('single-product', [
         'id' => $id,
         'prod' => $prod,
