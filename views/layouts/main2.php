@@ -200,13 +200,16 @@ Modal::Begin([
 Modal::End();
 ?>
 
-<span style="position: fixed;bottom: 5%;right: 1%;z-index: 10;font-size:60px;" id='scrollup'
+<span style="position: fixed;bottom: 5%;right: 1%;z-index: 10;font-size:60px;outline: 0!important;" id='scrollup'
       class="spanMy text-uppercase text-center phone-icone-fixed wow pulse animated" data-wow-duration="2.0s" data-wow-iteration="infinite">
 
-       <a href="#" class="btn btn-sm btn-transparent inverse" data-toggle="modal" data-target="#phoneModal"><i
-               class="glyphicon glyphicon-earphone" style=""></i>
+       <a href="#" class="btn btn-sm btn-transparent inverse" data-toggle="modal" data-target="#phoneModal" style="outline: 0!important;">
+           <i
+               class="glyphicon glyphicon-earphone" style="outline: 0!important;"></i>
        </a>
 </span>
+
+
 
 
 <div class="reanimation-modal modal fade" id="phoneModal" role="dialog">
