@@ -1,6 +1,7 @@
 *{
     font-family: 'Roboto';
     font-size: 16px;
+
 }
 
 html,
@@ -374,6 +375,7 @@ a[data-target="#phoneModal"]:active{
 }
 
 #scrollup .glyphicon{
+    outline: none;
     background: #ff8e83;
     border-style: solid;
     border-color: #e3e3e3;
@@ -640,9 +642,11 @@ a[data-target="#phoneModal"]:active{
 }
 
 
-#scrollup:hover .glyphicon {
+#scrollup .glyphicon {
     -webkit-animation: rotating 4.05s ease-in-out infinite;
     -moz-animation: rotating 4.05s ease-in-out infinite;
     -o-animation: rotating 4.05s ease-in-out infinite;
     animation: rotating 4.05s ease-in-out infinite;
+
+
 }
