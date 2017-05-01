@@ -9,6 +9,8 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use app\models\Product;
 use app\models\Category;
+use app\modules\admin\models\InCategory;
+
 
 //d($prod);
 
@@ -39,10 +41,6 @@ $this->params['breadcrumbs'];
                      <ul class="slides">
                          <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
                              <img src="<?=Url::to(['web/'.$prod->photo])?>" />
-<!-- 
-                         </li>
-                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
-                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
 
                          </li>
                          <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
@@ -52,7 +50,14 @@ $this->params['breadcrumbs'];
                          <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
                              <img src="<?=Url::to(['web/'.$prod->photo])?>" />
 
-                         </li> -->
+                         </li>
+                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
+                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
+
+                      <!--         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
+                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
+ -->
+                         </li>
                      </ul>
                  </div>
                 <style type="text/css">
@@ -110,7 +115,18 @@ $this->params['breadcrumbs'];
                     <a class="add-to-cart btn btn-danger" data-id="<?= $prod->id ?>" href="#">Добавить в корзину</a>
                 </div>
 
+                <?php $in = InCategory::find()->where(['id' => $go])->all();?>
+                <?php foreach($in as $i):?>
+                <h3><?=$i->name;?></h3>
+                <ul>
+                <?php foreach($group as $gg):?>
+                    <li><a href="<?=Url::to(['site/single-product', 'id' => $gg->product_id])?>"><?php echo $gg->value;?></li></a>
+                    </li>
+                <?php endforeach;?>
+                </ul>
+                <?php endforeach;?>
 
+             
                 <!--                <div class="rating1">-->
                 <!--          <span class="starRating">-->
                 <!--            <input id="rating5" type="radio" name="rating" value="5">-->
@@ -217,10 +233,12 @@ $this->params['breadcrumbs'];
                         <div role="tabpanel" class="tab-pane" id="profile">
                             <table class="table">
                                 <?php foreach ($incat as $in){ ?>
+                                <?php if(!empty($in->catOption->value)):?>
                                 <tr>
                                     <td><?=$in->name?></td>
                                     <td><?=$in->catOption->value?></td>
                                 </tr>
+                            <?php endif;?>
                                 <?php }?>
                             </table>
 

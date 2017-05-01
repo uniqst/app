@@ -76,3 +76,18 @@ use app\modules\admin\models\catOption;
         <?php ActiveForm::end(); ?>
 
     </div>
+<!-- <script type="text/javascript">
+    $('form#($model->formName())').on('beforeSubmit', function(e))
+    {
+        var \$form = $(this);
+        $.post(
+                \$form.attr("action"),
+                \$form.serialize()
+            )
+                .done(function(result){
+                    if(result.message == 'Success')
+                }
+                    $(document).find('#secondModal').modal('hide');
+                    $.pjax
+    }
+</script> -->

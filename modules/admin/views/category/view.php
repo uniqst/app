@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\data\ActiveDataProvider;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Category */
@@ -37,5 +39,17 @@ $this->title = $model->name;
             'name',
         ],
     ]) ?>
+     <?= GridView::widget([
+        'dataProvider' => new ActiveDataProvider(['query' => $model->getInCategory()]),
+            'filterModel' => $searchModel,
+
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'name',
+            ['class' => 'yii\grid\ActionColumn',
+             'controller' => '/admin/in-category',
+            ],
+        ],
+    ]); ?>
 
 </div>

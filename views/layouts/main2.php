@@ -18,7 +18,6 @@ use app\components\MenuWidget;
 
 
 AppAsset::register($this);
-
 $q = Yii::$app->request->get('q');
 ?>
 <?php $this->beginPage() ?>

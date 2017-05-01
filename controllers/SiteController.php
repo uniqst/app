@@ -58,15 +58,7 @@ class SiteController extends Controller
      */
     public function actions()
     {
-        Yii::$app->view->params['key'] = Category::find()->where(['parent_id' => '0'])->with('product')->all();
-
-        // $category = Category::find()->where(['parent_id' => '0'])->with('product')->all();
-        // foreach($category as $cat){
-        //    $cateq = Category::find()->where(['parent_id' => $cat['id']])->all();
-        //      foreach($cateq as $c){
-        //         $count = Product::find()->where(['category_id' => $c->id])->count();
-        //         }
-        //      }
+     
 
         return [
             'error' => [
@@ -236,32 +228,49 @@ public function actionIndex()
             $query->where(['product_id' => $id]);
      }])->all();
 
-     $clone = Product::find()->where(['group' => $prod->group])->all();
-     $cl = [];
-     foreach ($clone as $c){
-        $cl[] = $c->id;
-     }
-     $clone = CatOption::find()->where(['product_id' => $cl])->all();
-
-     $cl = [];
-     foreach ($clone as $c){
-        $cl[] = $c->value;
-     }
-     $cl = array_count_values ($cl);
-     $clone = [];
-     foreach ($cl as $key => $val){
-        if ($val == 1){
-        $clone[] = $key;
+    $group = Product::find()->where(['id' => $id])->one();
+    // $group = Product::find()->where(['group' => $group->group])->with('catOption')->all();
+    // foreach($group as $g){
+    //     $gr[] = $g->id;
+    // }
+    $group = CatOption::find()->joinWith(['product' => function(ActiveQuery $query) use($group){
+            $query->where(['group' => $group->group]);
+     }])->all();
+    foreach ($group as $g){
+        $gg[$g->id] = (string)$g->value;
+    }
+    $count = array_count_values($gg);
+    foreach($gg as $key => $val){
+        if($count[$val] == 1){
+            $go[$key] = $val;
         }
-     }
+    }   
+    
+    $arr = CatOption::find()->where(['product_id' => $id])->all();
+    foreach($arr as $g){
+    unset($go[$g->id]);
+    }
 
-     print_r($clone);
+    $group = CatOption::find()->where(['id' => array_keys($go)])->all();
+    foreach($group as $g){
+        $go1[] = $g->incat_id;
+    }
+
+
+    // $group = InCategory::find()->joinWith(['catOption' => function(ActiveQuery $query) use($ggg){
+    //         $query->where(['value' => $ggg]);
+    //  }])->all();
+ 
+
      return $this->render('single-product', [
         'id' => $id,
         'prod' => $prod,
         'title' => $prod->name,
         'category' => $category,
         'incat' => $incat,
+        'group' => $group,
+        'ggg' => $ggg,
+        'go' => $go1,
         ]);
 
     }

@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\grid\GridView;
 use app\modules\admin\models\Category;
 use yii\bootstrap\Modal;
+use yii\widgets\Pjax;
 
 
 /* @var $this yii\web\View */
@@ -16,7 +17,7 @@ $this->title = 'Категории';
     <p>
         <?= Html::button('Cоздать категорию', ['value' => Url::to(['create']) , 'class' => 'btn btn-success' , 'id' => 'modalButton']) ?>
     </p>
-
+   <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <?php
        Modal::begin([
     'header' => '<h2>Создание категории</h2>',
@@ -27,10 +28,10 @@ $this->title = 'Категории';
 
     Modal::end();
     ?>
+    <?php Pjax::begin(['id' => 'branchesGrid']);?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
-
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -46,4 +47,5 @@ $this->title = 'Категории';
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?php Pjax::end();?>
 </div>

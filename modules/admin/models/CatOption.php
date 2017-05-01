@@ -37,7 +37,6 @@ class CatOption extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['value'], 'required'],
             [['incat_id'], 'integer'],
             [['value'], 'string', 'max' => 250],
         ];
