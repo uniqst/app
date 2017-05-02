@@ -25,6 +25,10 @@ class CatOption extends \yii\db\ActiveRecord
     {
         return $this->hasMany(InCategory::className(), ['id' => 'incat_id']);
     }
+    public function getIn()
+    {
+        return $this->hasMany(InCategory::className(), ['id' => 'incat_id']);
+    }
 
      public function getProduct()
     {

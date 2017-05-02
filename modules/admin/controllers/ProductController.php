@@ -7,6 +7,7 @@ use app\modules\admin\models\Product;
 use app\modules\admin\models\Category;
 use app\modules\admin\models\CatOption;
 use app\modules\admin\models\InCategory;
+use app\modules\admin\models\Image;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -58,10 +59,12 @@ class ProductController extends AdminController
 
     public function actionCreate()
     {
-        $this->layout = false;
+        // $this->layout = false;
         $catid - new InCategory();
         $model = new Product();
-        if ($model->load(Yii::$app->request->post())) {
+        $qwe = new Image();
+        if ($model->load(Yii::$app->request->post()) && $qwe->load(Yii::$app->request->post())) {
+            $qwe->save();
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs('upload/' . $model->file->baseName . '.' . $model->file->extension);
             $model->photo = 'upload/' . $model->file->baseName . '.' . $model->file->extension;
@@ -70,7 +73,7 @@ class ProductController extends AdminController
             $model->save();
              return $this->redirect(['update', 'id' => $model->id]);
         } else {
-            return $this->render('create', compact('model', 'catid'));
+            return $this->render('create', compact('model', 'catid', 'qwe'));
         }
     }
 

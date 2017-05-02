@@ -17,7 +17,6 @@ $this->title = 'Категории';
     <p>
         <?= Html::button('Cоздать категорию', ['value' => Url::to(['create']) , 'class' => 'btn btn-success' , 'id' => 'modalButton']) ?>
     </p>
-   <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <?php
        Modal::begin([
     'header' => '<h2>Создание категории</h2>',

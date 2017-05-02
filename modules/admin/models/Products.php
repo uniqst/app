@@ -5,12 +5,12 @@ namespace app\modules\admin\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\User;
+use app\modules\admin\models\Product;
 
 /**
- * Userr represents the model behind the search form about `app\modules\admin\models\User`.
+ * Products represents the model behind the search form about `app\modules\admin\models\Product`.
  */
-class Userr extends User
+class Products extends Product
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class Userr extends User
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['username', 'password', 'auth_key'], 'safe'],
+            [['id', 'category_id', 'price', 'price_promo'], 'integer'],
+            [['name', 'group', 'description', 'photo'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class Userr extends User
      */
     public function search($params)
     {
-        $query = User::find();
+        $query = Product::find();
 
         // add conditions that should always apply here
 
@@ -60,11 +60,15 @@ class Userr extends User
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'category_id' => $this->category_id,
+            'price' => $this->price,
+            'price_promo' => $this->price_promo,
         ]);
 
-        $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'auth_key', $this->auth_key]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'group', $this->group])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'photo', $this->photo]);
 
         return $dataProvider;
     }

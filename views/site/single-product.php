@@ -10,6 +10,7 @@ use yii\bootstrap\ActiveForm;
 use app\models\Product;
 use app\models\Category;
 use app\modules\admin\models\InCategory;
+use app\modules\admin\models\CatOption;
 
 
 //d($prod);
@@ -119,6 +120,10 @@ $this->params['breadcrumbs'];
                 <?php foreach($in as $i):?>
                 <h3><?=$i->name;?></h3>
                 <ul>
+                <?php $group = CatOption::find()->where(['incat_id' => $i->id])->joinWith(['product' => function(yii\db\ActiveQuery $query) use($prod){
+                        $query->where(['group' => $prod->group]);
+                    }])->all(); ?>
+
                 <?php foreach($group as $gg):?>
                     <li><a href="<?=Url::to(['site/single-product', 'id' => $gg->product_id])?>"><?php echo $gg->value;?></li></a>
                     </li>

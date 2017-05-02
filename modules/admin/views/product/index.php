@@ -28,9 +28,10 @@ $this->title = 'Список товаров';
 
     Modal::end();
     ?>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-           'filterModel' => $searchModel,
+        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 

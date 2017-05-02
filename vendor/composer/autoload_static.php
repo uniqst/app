@@ -25,6 +25,10 @@ class ComposerStaticInit9f9e4e27e79990b4ee47bd62041b34f3
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
         ),
+        'w' => 
+        array (
+            'wbraganca\\dynamicform\\' => 22,
+        ),
         'r' => 
         array (
             'rmrevin\\yii\\fontawesome\\' => 24,
@@ -122,6 +126,10 @@ class ComposerStaticInit9f9e4e27e79990b4ee47bd62041b34f3
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'wbraganca\\dynamicform\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wbraganca/yii2-dynamicform',
         ),
         'rmrevin\\yii\\fontawesome\\' => 
         array (

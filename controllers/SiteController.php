@@ -251,12 +251,11 @@ public function actionIndex()
     unset($go[$g->id]);
     }
 
-    $group = CatOption::find()->where(['id' => array_keys($go)])->all();
+    $group = CatOption::find()->where(['id' => array_keys($go)])->with(['inCategory'])->all();
     foreach($group as $g){
         $go1[] = $g->incat_id;
     }
-
-
+  
     // $group = InCategory::find()->joinWith(['catOption' => function(ActiveQuery $query) use($ggg){
     //         $query->where(['value' => $ggg]);
     //  }])->all();

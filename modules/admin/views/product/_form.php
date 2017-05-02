@@ -9,12 +9,14 @@ use app\modules\admin\models\Product;
 use app\modules\admin\models\Category;
 use app\modules\admin\models\InCategory;
 use app\modules\admin\models\catOption;
+use app\modules\admin\models\Image;
 
 
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
 /* @var $form yii\widgets\ActiveForm */
+$qwe = new Image();
 ?>
 
 <div class="product-form">
@@ -22,9 +24,9 @@ use app\modules\admin\models\catOption;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
 
-
-    <?= $form->field($model, 'file')->fileInput() ?>
-    <img src="/web/<?=$model->photo?>" width="200px;"/>
+     <?= $form->field($qwe, 'product_id')->textInput() ?>
+     <?= $form->field($qwe, 'name')->textInput() ?>
+     <img src="/web/<?=$model->photo?>" width="200px;"/>
 
     <div class="form-group field-product-category_id has-success">
         <label class="control-label" for="product-category_id">Категория</label>

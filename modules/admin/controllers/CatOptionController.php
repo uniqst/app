@@ -12,22 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * CatOptionController implements the CRUD actions for CatOption model.
  */
-class CatOptionController extends Controller
+class CatOptionController extends AdminController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+
 
     /**
      * Lists all CatOption models.
