@@ -200,17 +200,19 @@ public function actionIndex()
     {
 
         $id = Yii::$app->request->get('id');
-        $product = Product::find()->where(['id' => $id])->all();
+        $query = Product::find()->orderBy(['id' => SORT_DESC]);
         $pagination = new Pagination([
-            'defaultPageSize' => 9,
-            'totalCount' => $product->count(),
-            ]);
-        $product = $product
+            'totalCount' => $query->count(),
+            'pageSize' => 16,
+            'forcePageParam' => false,
+            'pageSizeParam' => false
+         ]);
+        $product = $query
         ->offset($pagination->offset)
         ->limit($pagination->limit)
         ->all();
-
-        return $this->render('catalog', compact('product','pagination'));
+        $category = Category::find()->where(['parent_id' => 0])->all();
+        return $this->render('catalog', compact('product', 'pagination', 'pages', 'category'));
     }
 
     public function actionProduct()
@@ -261,7 +263,7 @@ public function actionIndex()
     // $group = InCategory::find()->joinWith(['catOption' => function(ActiveQuery $query) use($ggg){
     //         $query->where(['value' => $ggg]);
     //  }])->all();
-    $img = Image::find()->where(['product_id' => $id])->limit(5)->all();
+    $img = Image::find()->where(['product_id' => $id])->limit(4)->all();
      return $this->render('single-product', [
         'id' => $id,
         'prod' => $prod,
@@ -282,7 +284,7 @@ public function actionIndex()
         $query = Product::find()->where(['like', 'name', $q]);
         $pagination = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 9,
+            'pageSize' => 16,
             'forcePageParam' => false,
             'pageSizeParam' => false
          ]);

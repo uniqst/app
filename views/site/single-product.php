@@ -45,6 +45,7 @@ $this->params['breadcrumbs'];
                              <img src="<?=Url::to(['web/'.$im->name])?>" />
                          </li>
                     <?php endforeach;?>
+                   
                      </ul>
                  </div>
                 <style type="text/css">

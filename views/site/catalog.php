@@ -4,39 +4,101 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 use yii\widgets\LinkPager;
+use app\modules\admin\models\Category;
 
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'Каталог | '. $category->name;
+$this->title = 'Каталог товаров';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
-    <h1><?= Html::encode($this->title) ?></h1>
-        <div class="row">
-       <?php foreach($product as $prod){?>
-        
- <div class="col-sm-4">
-              <div class="product-image-wrapper">
-                <div class="single-products">
-                    <div class="productinfo text-center">
-                       <a href="<?= Url::to(['site/single-product', 'name' => $prod->name, 'id' => $prod->id]);?>"><img class="qqq img-thumbnail"" src="<?= '/web/'.$prod->photo;?>" width="100%"/></a>
-                      <h2>$<?=$prod->price?></h2>
-                      <p><?=$prod->name?></p>
-        <input type="text" value="1" class="form-control" id="qty<?= $prod->id?>" style="width: 25%; position: inline-block; margin: auto;" />
-          <a href="#" style="width: 70%; position: inline-block;" data-id="<?= $prod->id?>" class="btn btn-danger add-to-cart cart">
-            <i class="glyphicon glyphicon-shopping-cart"></i>
-            Добавить в корзину
-          </a>
+<div class="container-fluid">
+
+
+
+    <div class="row">
+        <div class="col-md-3 categories">
+            <ul class="hidden-xs hidden-sm">
+                <h3>Категории</h3>
+                <?php foreach ($category as $cat) { ?>
+                    <!--                    <li><a href="#">--><? //= $cat->name ?><!--</a></li>-->
+
+                    <div class="btn-group dropdown">
+                        <a href="<?= Url::to(['site/category', 'id' => $cat->id]) ?>" class="btn"
+                           data-label-placement><?= $cat->name ?></a>
+
+                        <a data-toggle="dropdown" data-hover="dropdown" class="btn dropdown-toggle"><span
+                                class="fa fa-angle-right" style="position: absolute;right: 10px;font-size: 15px"></span></a>
+
+                        <ul class="dropdown-menu pull-middle pull-right pull-middle-true">
+                            <?php
+                            $categ = Category::find()->where(['parent_id' => $cat['id']])->all();
+                            foreach ($categ as $c) {
+                                //$count = Product::find()->where(['category_id' => $c->id])->count();
+                                ?>
+                                <li><a href="<?= Url::to(['site/category', 'id' => $c['id']]) ?>"><?= $c['name']; ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
                     </div>
-                
+
+                <?php } ?>
+            </ul>
+
+            <!-- START MOBILE MENU AREA -->
+            <div class="mobile-menu-area hidden-lg hidden-md">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul>
+
+
+                                        <?php foreach ($category as $cat): ?>
+                                            <? $categ = Category::find()->where(['parent_id' => $cat['id']])->all(); ?>
+                                            <button class="accordion" ><?= $cat['name'] ?></button>
+                                            <div class="panel">
+                                                <ul>
+                                                    <?php foreach ($categ as $c): ?>
+                                                        <li>
+                                                            <a href="<?= Url::to(['site/category', 'id' => $c['id']]) ?>"><?= $c['name']; ?></a>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                        <?php endforeach; ?>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            
-              </div>
             </div>
-       
-        <?php }?>
+
+
         </div>
-        <div class="clearfix"></div>
-        <?=LinkPager::widget(['pagination' => $pagination])?>
+
+        <div class="col-md-9 prod-window">
+           
+
+            <div class="row products">
+                <?php
+                echo $this->render('_product', [
+                    'product' => $product,
+                ]);
+                ?>
+
+            </div>
+         <?=LinkPager::widget([
+                  'pagination' => $pagination,
+                ]);
+        ?>
+        </div>
+
+
+    </div>
+
+
 </div>

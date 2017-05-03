@@ -145,13 +145,13 @@ $this->title = 'Итернет-магазин тезники';
                 </div>
 
                 <div class="see pull-right">
-                    <p><a href="#">Все товары</a></p>
+                    <p><a href="<?=Url::to(['site/catalog'])?>">Смотреть все</a></p>
                 </div>
             </div>
 
             <div class="row products">
                 <?php
-                echo $this->render('_prod', [
+                echo $this->render('_product', [
                     'product' => $product,
                 ]);
                 ?>
@@ -165,14 +165,14 @@ $this->title = 'Итернет-магазин тезники';
                 </div>
 
                 <div class="see pull-right">
-                    <p><a href="#">Смотреть все</a></p>
+                    <p><a href="<?=Url::to(['site/catalog'])?>">Смотреть все</a></p>
                 </div>
             </div>
 
             <div class="row products">
                 <?php
                 echo
-                $this->render('_prod', [
+                $this->render('_product', [
                     'product' => $top
                 ]);
                 ?>

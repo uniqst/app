@@ -1,14 +1,16 @@
  <?php
 use yii\helpers\Url;
+use app\modules\admin\models\Image;
 
  ?>
  <?php foreach ($product as $prod):?>
+  <?php $img = Image::find()->where(['product_id' => $prod->id])->one()?>
   <?php if (!empty(Yii::$app->request->get('value'))):?>
    <?php if(count($value) == count($prod->catOption)):?>
           <div class="col-sm-6 col-md-6 col-lg-3">
             <div class="product">
                 <a href="<?= \yii\helpers\Url::to(['site/single-product', 'id' => $prod->id, 'name' => $prod->name]) ?>">
-                   <div class="img-container"><img src="<?=Url::to(['web/'.$prod->photo])?>" alt=""></div>
+                   <div class="img-container"><img src="<?=Url::to(['web/'.$img->name])?>" alt=""></div>
                 </a>
                 <h2><?=$prod->name?> </h2>
                 <div class="price-details">
@@ -28,7 +30,7 @@ use yii\helpers\Url;
              <div class="col-sm-6 col-md-6 col-lg-3">
             <div class="product">
                 <a href="<?= \yii\helpers\Url::to(['site/single-product', 'id' => $prod->id, 'name' => $prod->name]) ?>">
-                   <div class="img-container"><img src="<?=Url::to(['web/'.$prod->photo])?>" alt=""></div>
+                   <div class="img-container"><img src="<?=Url::to(['web/'.$img->name])?>" alt=""></div>
                 </a>
                 <h2><?=$prod->name?> </h2>
                 <div class="price-details">
