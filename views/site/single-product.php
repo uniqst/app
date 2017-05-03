@@ -40,25 +40,11 @@ $this->params['breadcrumbs'];
 
                  <div class="flexslider">
                      <ul class="slides">
-                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
-                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
-
+                     <?php foreach($img as $im):?>
+                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$im->name])?>">
+                             <img src="<?=Url::to(['web/'.$im->name])?>" />
                          </li>
-                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
-                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
-
-                         </li>
-                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
-                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
-
-                         </li>
-                         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
-                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
-
-                      <!--         <li class="img-container" data-thumb="<?=Url::to(['web/'.$prod->photo])?>">
-                             <img src="<?=Url::to(['web/'.$prod->photo])?>" />
- -->
-                         </li>
+                    <?php endforeach;?>
                      </ul>
                  </div>
                 <style type="text/css">

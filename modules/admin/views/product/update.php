@@ -13,7 +13,9 @@ $this->title = 'Редактирование товара : ' . $model->name;
     <?= $this->render('_form', [
         'model' => $model,
         'catid' => $catid,
-        'catl'  => $catl
+        'catl'  => $catl,
+        'qqq' => $qqq,
+        'qwe' => $qwe,
     ]) ?>
 
 </div>

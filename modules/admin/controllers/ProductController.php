@@ -8,6 +8,7 @@ use app\modules\admin\models\Category;
 use app\modules\admin\models\CatOption;
 use app\modules\admin\models\InCategory;
 use app\modules\admin\models\Image;
+use app\modules\admin\models\UploadForm;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -28,17 +29,19 @@ class ProductController extends AdminController
      * Lists all Product models.
      * @return mixed
      */
-    public function actionIndex()
+   public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find()->with('category'),
+            'query' => Product::find()->joinwith('category'),
+             'pagination' => [
+                'pageSize' => 15,
+                 ],
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
     }
-
     /**
      * Displays a single Product model.
      * @param integer $id
@@ -59,21 +62,30 @@ class ProductController extends AdminController
 
     public function actionCreate()
     {
-        // $this->layout = false;
+        $this->layout = false;
         $catid - new InCategory();
         $model = new Product();
         $qwe = new Image();
-        if ($model->load(Yii::$app->request->post()) && $qwe->load(Yii::$app->request->post())) {
-            $qwe->save();
-            $model->file = UploadedFile::getInstance($model, 'file');
-            $model->file->saveAs('upload/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->photo = 'upload/' . $model->file->baseName . '.' . $model->file->extension;
-
-            // $catid->save();
+        $qqq = new UploadForm();   
+        if ($model->load(Yii::$app->request->post())) {
+            $model->group = Yii::$app->request->post('Product')['group'];
             $model->save();
+
+            if (Yii::$app->request->isPost) {
+            $qqq->imageFiles = UploadedFile::getInstances($qqq, 'imageFiles');
+            if ($qqq->upload()) {
+               foreach ($_FILES['UploadForm']['name']['imageFiles'] as $file) {
+                   $qwe = new Image();
+                   $qwe->product_id = $model->id;
+                   $qwe->name = 'upload/'.$file;
+                   $qwe->save();
+               }
+            }
+        }
+
              return $this->redirect(['update', 'id' => $model->id]);
         } else {
-            return $this->render('create', compact('model', 'catid', 'qwe'));
+            return $this->render('create', compact('model', 'catid', 'qwe', 'qqq'));
         }
     }
 
@@ -87,7 +99,8 @@ class ProductController extends AdminController
     {
         $model = $this->findModel($id);
         $id = Yii::$app->request->get('id');
-   
+        $qqq = new UploadForm();   
+
         $product = Product::find()->where(['id' => $id])->with(['category.inCategory.catOption' => function(ActiveQuery $query){
             $query->where(['product_id' => Yii::$app->request->get('id')]);
         }])->one();
@@ -115,18 +128,28 @@ class ProductController extends AdminController
         }
     }
         if ($model->load(Yii::$app->request->post())) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-            if(!empty($model->file)){
-            $model->file->saveAs('upload/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->photo = 'upload/' . $model->file->baseName . '.' . $model->file->extension;
-            }
+            $model->group = Yii::$app->request->post('Product')['group'];
             $model->save();
+          if (Yii::$app->request->isPost){
+            $qqq->imageFiles = UploadedFile::getInstances($qqq, 'imageFiles');
+            if($qqq->imageFiles){
+            if ($qqq->upload()) {
+               foreach ($_FILES['UploadForm']['name']['imageFiles'] as $file) {
+                   $qwe = new Image();
+                   $qwe->product_id = $model->id;
+                   $qwe->name = 'upload/'.$file;
+                   $qwe->save();
+               }
+           }
+            }
+        }
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
                 'catid' => $catid,
                 'catl' => $catl,
+                'qqq' => $qqq,
             ]);
         }
     }

@@ -31,7 +31,7 @@ class Category extends \yii\db\ActiveRecord
 
     public function getProduct()
     {
-        return $this->hasOne(Product::className(), ['category_id' => 'id']);
+        return $this->hasMany(Product::className(), ['category_id' => 'id']);
     }
 
      public function getCategory()

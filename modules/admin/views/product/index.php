@@ -28,10 +28,8 @@ $this->title = 'Список товаров';
 
     Modal::end();
     ?>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -51,13 +49,8 @@ $this->title = 'Список товаров';
                 },
             ],
             'name',
-            // 'description',
             'price',
-            // 'price_promo',
-            // 'photo',
-           
-            // 'brand',
-
+        
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

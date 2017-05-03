@@ -15,7 +15,8 @@ $this->title = 'Создать товар';
     <?= $this->render('_form', [
         'model' => $model,
         'catid' => $catid,
-        'wqe' => $qwe,
+        'qwe' => $qwe,
+        'qqq' => $qqq,
     ]) ?>
 
 </div>

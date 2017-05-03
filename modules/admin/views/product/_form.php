@@ -16,16 +16,15 @@ use app\modules\admin\models\Image;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
 /* @var $form yii\widgets\ActiveForm */
-$qwe = new Image();
 ?>
 
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
+    <?= $form->field($qqq, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
-     <?= $form->field($qwe, 'product_id')->textInput() ?>
-     <?= $form->field($qwe, 'name')->textInput() ?>
+
      <img src="/web/<?=$model->photo?>" width="200px;"/>
 
     <div class="form-group field-product-category_id has-success">

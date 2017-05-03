@@ -23,9 +23,7 @@ $this->title = $model->name;
             ],
         ]) ?>
     </p>
-        <?php $arr = [['attribute' => 'brand'], ['attribute' => 'width']];
-
-        print_r($arr);?>
+      
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -42,7 +40,7 @@ $this->title = $model->name;
             [
                 'attribute' => 'category_id',
                 'value'     => 
-                    $model->category->name,
+                    $model->name,
                 ],
             'name',
             'description:html',

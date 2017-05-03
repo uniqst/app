@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\modules\admin\models\Category;
 use app\modules\admin\models\Product;
+use app\modules\admin\models\Image;
 use app\models\Pages;
 use app\models\Options;
 use app\models\OrderItem;
@@ -250,17 +251,17 @@ public function actionIndex()
     foreach($arr as $g){
     unset($go[$g->id]);
     }
-
+    if($go){
     $group = CatOption::find()->where(['id' => array_keys($go)])->with(['inCategory'])->all();
     foreach($group as $g){
         $go1[] = $g->incat_id;
     }
+}
   
     // $group = InCategory::find()->joinWith(['catOption' => function(ActiveQuery $query) use($ggg){
     //         $query->where(['value' => $ggg]);
     //  }])->all();
- 
-
+    $img = Image::find()->where(['product_id' => $id])->limit(5)->all();
      return $this->render('single-product', [
         'id' => $id,
         'prod' => $prod,
@@ -270,6 +271,7 @@ public function actionIndex()
         'group' => $group,
         'ggg' => $ggg,
         'go' => $go1,
+         'img' => $img,
         ]);
 
     }
