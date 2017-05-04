@@ -15,7 +15,11 @@ use app\modules\admin\models\Image;
                 <h2><?=$prod->name?> </h2>
                 <div class="price-details">
                     <div class="price-number">
-                        <p><span class="rupees"><?=$prod->price?> грн</span></p>
+                        <p><span class="rupees"> <?php if ($prod->price_promo != 0){?>
+                <span class="textimg text-danger"><span style="text-decoration: line-through; "><?=$prod->price?> грн</span><span class="text-success"> <?=$prod->price_promo?> грн</span></span>
+                <?php  } else {?>
+                <span class="textimg text-success"><?=$prod->price?> грн</span>
+                <?php  }?></span></p>
                     </div>
                     <div class="add-cart">
                         <span class="pull-right "><a class="add-to-cart" data-id="<?=$prod->id?>" href="#"><i class="fa fa-cart-plus" style='font-size:23px' aria-hidden="true"></i></a></span>
@@ -35,7 +39,11 @@ use app\modules\admin\models\Image;
                 <h2><?=$prod->name?> </h2>
                 <div class="price-details">
                     <div class="price-number">
-                        <p><span class="rupees"><?=$prod->price?> грн</span></p>
+                        <p><span class="rupees"> <?php if ($prod->price_promo != 0){?>
+                <span class="textimg text-danger"><span style="text-decoration: line-through; "><?=$prod->price?> грн</span><span class="text-success"> <?=$prod->price_promo?> грн</span></span>
+                <?php  } else {?>
+                <span class="textimg text-success"><?=$prod->price?> грн</span>
+                <?php  }?></span></p>
                     </div>
                     <div class="add-cart">
                         <span class="pull-right "><a class="add-to-cart" data-id="<?=$prod->id?>" href="#"><i class="fa fa-cart-plus" style='font-size:23px' aria-hidden="true"></i></a></span>
