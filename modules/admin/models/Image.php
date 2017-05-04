@@ -23,7 +23,7 @@ class Image extends \yii\db\ActiveRecord
         return 'image';
     }
 
-    public function getProductImage()
+    public function getProduct()
     {
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }

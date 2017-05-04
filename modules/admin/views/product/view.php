@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
+use app\modules\admin\models\Image;
+
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
 
@@ -23,7 +25,7 @@ $this->title = $model->name;
             ],
         ]) ?>
     </p>
-      
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -31,9 +33,13 @@ $this->title = $model->name;
 
               [
                 'attribute' => 'photo',
-                 'value'     => function($data){
-                    return '<img src="/web/' . $data->photo . '" style="width: 150px;" />';
+                 'value'     => function($img){
+                $img = Image::find()->where(['product_id' => Yii::$app->request->get('id')])->all();
+                foreach ($img as $im){
+                 return '<img src="/web/' . $im->name . '" style="width: 150px;" />';
+                }
                 },
+
                 'format' => 'html',
             ],
             // 'category_id',

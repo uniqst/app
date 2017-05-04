@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\bootstrap\Modal;
-
+use app\modules\admin\models\Image;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -37,7 +37,8 @@ $this->title = 'Список товаров';
              [
                 'attribute' => 'photo',
                  'value'     => function($data){
-                    return '<img src="/web/' . $data->photo . '" style="width: 150px;" />';
+                    $img = Image::find()->where(['product_id' => $data->id])->one();
+                    return '<img src="/web/' . $img->name . '" style="width: 150px;" />';
                 },
                 'format' => 'html',
             ],

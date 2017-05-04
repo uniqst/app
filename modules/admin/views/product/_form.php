@@ -16,6 +16,7 @@ use app\modules\admin\models\Image;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
 /* @var $form yii\widgets\ActiveForm */
+$img = Image::find()->where(['product_id' => Yii::$app->request->get('id')])->all();
 ?>
 
 <div class="product-form">
@@ -24,9 +25,9 @@ use app\modules\admin\models\Image;
 
     <?= $form->field($qqq, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
-
-     <img src="/web/<?=$model->photo?>" width="200px;"/>
-
+    <?php foreach($img as $im):?>
+     <img src="/web/<?=$im->name?>" width="200px;"/>
+    <?php endforeach; ?>
     <div class="form-group field-product-category_id has-success">
         <label class="control-label" for="product-category_id">Категория</label>
         <select id="product-category_id" class="form-control" name="Product[category_id]">
